@@ -4,17 +4,39 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const sidebar = document.querySelector('.sidebar');
 
+// Create Overlay
+const overlay = document.createElement('div');
+overlay.className = 'sidebar-overlay';
+document.body.appendChild(overlay);
+
+function closeSidebar() {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+}
+
+function openSidebar() {
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+}
+
 if (menuToggle) {
     menuToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
+        if (sidebar.classList.contains('active')) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
     });
 }
+
+// Close sidebar when clicking overlay
+overlay.addEventListener('click', closeSidebar);
 
 // Close sidebar when clicking outside on mobile
 document.addEventListener('click', (e) => {
     if (window.innerWidth <= 992) {
-        if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
-            sidebar.classList.remove('active');
+        if (!sidebar.contains(e.target) && !menuToggle.contains(e.target) && !overlay.contains(e.target)) {
+            closeSidebar();
         }
     }
 });
@@ -119,29 +141,29 @@ if (notifBtn) {
 }
 
 // populate dynamic names from localStorage
-(function(){
-    try{
+(function () {
+    try {
         const token = localStorage.getItem('ef_token');
-        if (token){
+        if (token) {
             fetch('/api/me', { headers: { 'Authorization': 'Bearer ' + token } })
                 .then(r => r.ok ? r.json() : null)
                 .then(data => {
                     const name = data?.user?.name;
-                    if (name){
+                    if (name) {
                         const el = document.getElementById('newStudentName');
                         if (el) el.innerText = name;
                         const adminProfileName = document.querySelector('.admin-profile span');
                         // optionally update admin profile name if applicable
                     }
-                }).catch(()=>{});
+                }).catch(() => { });
         } else {
             const name = localStorage.getItem('ef_username');
-            if (name){
+            if (name) {
                 const el = document.getElementById('newStudentName');
                 if (el) el.innerText = name;
             }
         }
-    }catch(e){console.warn(e)}
+    } catch (e) { console.warn(e) }
 })();
 
 // Data Table Actions

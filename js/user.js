@@ -4,17 +4,39 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const sidebar = document.querySelector('.user-sidebar');
 
+// Create Overlay
+const overlay = document.createElement('div');
+overlay.className = 'sidebar-overlay';
+document.body.appendChild(overlay);
+
+function closeSidebar() {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+}
+
+function openSidebar() {
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+}
+
 if (menuToggle) {
     menuToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
+        if (sidebar.classList.contains('active')) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
     });
 }
 
-// Close sidebar when clicking outside on mobile
+// Close sidebar when clicking overlay
+overlay.addEventListener('click', closeSidebar);
+
+// Close sidebar when clicking outside on mobile (legacy check)
 document.addEventListener('click', (e) => {
     if (window.innerWidth <= 992) {
-        if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
-            sidebar.classList.remove('active');
+        if (!sidebar.contains(e.target) && !menuToggle.contains(e.target) && !overlay.contains(e.target)) {
+            closeSidebar();
         }
     }
 });
@@ -29,14 +51,14 @@ if (notifBtn) {
 
 // Try to fetch current user from backend using token
 window.addEventListener('DOMContentLoaded', async () => {
-    try{
+    try {
         const token = localStorage.getItem('ef_token');
         if (!token) return;
         const resp = await fetch('/api/me', { headers: { 'Authorization': 'Bearer ' + token } });
         if (!resp.ok) return;
         const data = await resp.json();
         const name = data?.user?.name;
-        if (name){
+        if (name) {
             const greet = document.getElementById('greetName');
             const side = document.getElementById('sidebarUserName');
             if (greet) greet.innerText = name;
@@ -44,7 +66,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             const img = document.querySelector('.user-profile-sidebar img');
             if (img) img.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=7CB342&color=fff`;
         }
-    }catch(e){ console.warn(e); }
+    } catch (e) { console.warn(e); }
 });
 
 // Animate progress bars on load
