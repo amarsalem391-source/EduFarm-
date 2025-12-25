@@ -41,58 +41,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Registration Chart
-const registrationCtx = document.getElementById('registrationChart');
-if (registrationCtx) {
-    new Chart(registrationCtx, {
-        type: 'line',
-        data: {
-            labels: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو'],
-            datasets: [{
-                label: 'تسجيلات الطلاب',
-                data: [65, 85, 120, 145, 180, 210],
-                borderColor: '#4A90E2',
-                backgroundColor: 'rgba(74, 144, 226, 0.1)',
-                tension: 0.4,
-                fill: true
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: true,
-                    position: 'top',
-                    align: 'end',
-                    labels: {
-                        font: {
-                            family: 'Cairo',
-                            size: 12
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        font: {
-                            family: 'Cairo'
-                        }
-                    }
-                },
-                x: {
-                    ticks: {
-                        font: {
-                            family: 'Cairo'
-                        }
-                    }
-                }
-            }
-        }
-    });
-}
+// Registration Chart Removed
 
 // Subjects Chart
 const subjectsCtx = document.getElementById('subjectsChart');
