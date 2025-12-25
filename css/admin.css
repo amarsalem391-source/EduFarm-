@@ -501,4 +501,21 @@ body {
     .top-bar h1 {
         font-size: 1.3rem;
     }
+
+    .modal-content {
+        width: 90% !important;
+        margin: 20% auto !important;
+    }
+}
+
+/* Ensure tables scroll on mobile */
+@media (max-width: 600px) {
+    .data-table {
+        overflow-x: auto;
+    }
+
+    .data-table table {
+        min-width: 600px;
+        /* Ensure table doesn't squish too much */
+    }
 }

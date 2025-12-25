@@ -525,4 +525,21 @@ body {
         flex-direction: column;
         text-align: center;
     }
+
+    .modal-content {
+        width: 90% !important;
+        margin: 20% auto !important;
+    }
+}
+
+/* Ensure tables scroll on mobile if present */
+@media (max-width: 600px) {
+    .data-table {
+        overflow-x: auto;
+        display: block;
+    }
+
+    .data-table table {
+        min-width: 600px;
+    }
 }
