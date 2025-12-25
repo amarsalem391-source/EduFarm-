@@ -96,15 +96,73 @@
             <div class="dashboard-content">
                 <div class="section-header">
                     <h2>التقارير والإحصائيات</h2>
-                    <button class="btn btn-primary"><i class="fas fa-download"></i> تصدير البيانات</button>
+                    <button class="btn btn-primary" onclick="exportData()">
+                        <i class="fas fa-download"></i> تصدير البيانات
+                    </button>
                 </div>
-                <!-- Placeholder for content -->
-                <div class="card">
-                    <p style="padding: 20px; text-align: center; color: #666;">جاري تجميع التقارير...</p>
+
+                <div class="card data-table">
+                    <table id="reportsTable">
+                        <thead>
+                            <tr>
+                                <th>نوع التقرير</th>
+                                <th>الفترة</th>
+                                <th>عدد العمليات</th>
+                                <th>الحالة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>تقرير التسجيلات</td>
+                                <td>ديسمبر 2024</td>
+                                <td>150</td>
+                                <td><span style="color: green; font-weight: bold;">مكتمل</span></td>
+                            </tr>
+                            <tr>
+                                <td>تقرير المدفوعات</td>
+                                <td>نوفمبر 2024</td>
+                                <td>8500 ج.م</td>
+                                <td><span style="color: green; font-weight: bold;">مكتمل</span></td>
+                            </tr>
+                            <tr>
+                                <td>نشاط الطلاب</td>
+                                <td>الأسبوع الحالي</td>
+                                <td>340 زيارة</td>
+                                <td><span style="color: orange; font-weight: bold;">جاري</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function exportData() {
+            // Mock Data
+            const rows = [
+                ["نوع التقرير", "الفترة", "عدد العمليات", "الحالة"],
+                ["تقرير التسجيلات", "ديسمبر 2024", "150", "مكتمل"],
+                ["تقرير المدفوعات", "نوفمبر 2024", "8500 ج.م", "مكتمل"],
+                ["نشاط الطلاب", "الأسبوع الحالي", "340 زيارة", "جاري"]
+            ];
+
+            let csvContent = "data:text/csv;charset=utf-8,\uFEFF"; // Add BOM for Excel Arabic support
+            rows.forEach(function (rowArray) {
+                let row = rowArray.join(",");
+                csvContent += row + "\r\n";
+            });
+
+            var encodedUri = encodeURI(csvContent);
+            var link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "edu_farm_reports.csv");
+            document.body.appendChild(link);
+
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
 
     <script src="../js/admin.js"></script>
 </body>
