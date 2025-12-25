@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات - Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar (same as dashboard) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    <span>EduFarm Admin</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>لوحة التحكم</span>
+                </a>
+                <a href="students.html" class="nav-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>إدارة الطلاب</span>
+                </a>
+                <a href="teachers.html" class="nav-item">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>إدارة المدرسين</span>
+                </a>
+                <a href="lessons.html" class="nav-item">
+                    <i class="fas fa-book"></i>
+                    <span>إدارة الدروس</span>
+                </a>
+                <a href="tests.html" class="nav-item">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>إدارة الاختبارات</span>
+                </a>
+                <a href="pdfs.html" class="nav-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>إدارة ملفات PDF</span>
+                </a>
+                <a href="videos.html" class="nav-item">
+                    <i class="fas fa-video"></i>
+                    <span>إدارة الفيديوهات</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>التقارير</span>
+                </a>
+                <a href="settings.html" class="nav-item active">
+                    <i class="fas fa-cog"></i>
+                    <span>الإعدادات</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../login.html" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="top-bar-right">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>الإعدادات</h1>
+                </div>
+                <div class="top-bar-left">
+                    <div class="notifications">
+                        <button class="notif-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">3</span>
+                        </button>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=4A90E2&color=fff" alt="Admin">
+                        <span>المسؤول</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Settings Content -->
+            <div class="settings-content">
+                <!-- Settings Tabs -->
+                <div class="settings-tabs">
+                    <button class="tab-btn active" data-tab="general">
+                        <i class="fas fa-sliders-h"></i>
+                        إعدادات عامة
+                    </button>
+                    <button class="tab-btn" data-tab="system">
+                        <i class="fas fa-cogs"></i>
+                        إعدادات النظام
+                    </button>
+                    <button class="tab-btn" data-tab="security">
+                        <i class="fas fa-shield-alt"></i>
+                        الأمان
+                    </button>
+                    <button class="tab-btn" data-tab="email">
+                        <i class="fas fa-envelope"></i>
+                        البريد الإلكتروني
+                    </button>
+                    <button class="tab-btn" data-tab="payment">
+                        <i class="fas fa-credit-card"></i>
+                        الدفع
+                    </button>
+                    <button class="tab-btn" data-tab="backup">
+                        <i class="fas fa-database"></i>
+                        النسخ الاحتياطي
+                    </button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="tab-content active" id="general">
+                    <div class="settings-card">
+                        <h3>الإعدادات العامة للموقع</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label>اسم الموقع</label>
+                                <input type="text" value="EduFarm" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>وصف الموقع</label>
+                                <textarea class="form-input" rows="3">منصة تعليمية شاملة لجميع المواد الدراسية</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>البريد الإلكتروني للاتصال</label>
+                                <input type="email" value="amarsalem391@gmail.com" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>رقم الهاتف</label>
+                                <input type="tel" value="+201115841707" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>العنوان</label>
+                                <input type="text" value="القاهرة، مصر" class="form-input">
+                            </div>
+                            <button type="submit" class="btn-save">حفظ التغييرات</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="system">
+                    <div class="settings-card">
+                        <h3>إعدادات النظام</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label>اللغة الافتراضية</label>
+                                <select class="form-input">
+                                    <option value="ar" selected>العربية</option>
+                                    <option value="en">English</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>المنطقة الزمنية</label>
+                                <select class="form-input">
+                                    <option value="Africa/Cairo" selected>القاهرة (GMT+2)</option>
+                                    <option value="Asia/Riyadh">الرياض (GMT+3)</option>
+                                    <option value="Asia/Dubai">دبي (GMT+4)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>العملة</label>
+                                <select class="form-input">
+                                    <option value="EGP" selected>جنيه مصري (EGP)</option>
+                                    <option value="SAR">ريال سعودي (SAR)</option>
+                                    <option value="AED">درهم إماراتي (AED)</option>
+                                </select>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>تفعيل وضع الصيانة</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn-save">حفظ التغييرات</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="security">
+                    <div class="settings-card">
+                        <h3>إعدادات الأمان</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label>كلمة المرور الحالية</label>
+                                <input type="password" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>كلمة المرور الجديدة</label>
+                                <input type="password" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>تأكيد كلمة المرور</label>
+                                <input type="password" class="form-input">
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>تفعيل المصادقة الثنائية (2FA)</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn-save">تحديث كلمة المرور</button>
+                        </form>
+
+                        <div class="activity-log">
+                            <h4>سجل النشاط الأخير</h4>
+                            <div class="log-item">
+                                <span>تسجيل دخول من IP: 192.168.1.1</span>
+                                <span class="log-time">منذ ساعتين</span>
+                            </div>
+                            <div class="log-item">
+                                <span>تحديث الإعدادات</span>
+                                <span class="log-time">منذ 5 ساعات</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="email">
+                    <div class="settings-card">
+                        <h3>إعدادات البريد الإلكتروني</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label>خادم SMTP</label>
+                                <input type="text" class="form-input" placeholder="smtp.example.com">
+                            </div>
+                            <div class="form-group">
+                                <label>منفذ SMTP</label>
+                                <input type="number" class="form-input" value="587">
+                            </div>
+                            <div class="form-group">
+                                <label>اسم المستخدم</label>
+                                <input type="email" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>كلمة المرور</label>
+                                <input type="password" class="form-input">
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>استخدام SSL/TLS</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn-save">حفظ الإعدادات</button>
+                            <button type="button" class="btn-test">إرسال بريد تجريبي</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="payment">
+                    <div class="settings-card">
+                        <h3>إعدادات الدفع</h3>
+                        <form class="settings-form">
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>تفعيل الدفع الإلكتروني</span>
+                                </label>
+                            </div>
+                            <div class="payment-methods">
+                                <h4>بوابات الدفع</h4>
+                                <div class="payment-option">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        <span>PayPal</span>
+                                    </label>
+                                    <input type="text" class="form-input" placeholder="API Key">
+                                </div>
+                                <div class="payment-option">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        <span>Stripe</span>
+                                    </label>
+                                    <input type="text" class="form-input" placeholder="Secret Key">
+                                </div>
+                                <div class="payment-option">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox">
+                                        <span>Fawry</span>
+                                    </label>
+                                    <input type="text" class="form-input" placeholder="Merchant Code">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-save">حفظ الإعدادات</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="backup">
+                    <div class="settings-card">
+                        <h3>النسخ الاحتياطي واستعادة البيانات</h3>
+                        <div class="backup-section">
+                            <div class="backup-info">
+                                <p>آخر نسخة احتياطية: 2024-12-25 10:30 AM</p>
+                                <p>حجم النسخة: 245 MB</p>
+                            </div>
+                            <div class="backup-actions">
+                                <button class="btn-backup">
+                                    <i class="fas fa-download"></i>
+                                    إنشاء نسخة احتياطية
+                                </button>
+                                <button class="btn-restore">
+                                    <i class="fas fa-upload"></i>
+                                    استعادة من نسخة احتياطية
+                                </button>
+                            </div>
+                            <div class="auto-backup">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>تفعيل النسخ الاحتياطي التلقائي</span>
+                                </label>
+                                <select class="form-input">
+                                    <option value="daily" selected>يومياً</option>
+                                    <option value="weekly">أسبوعياً</option>
+                                    <option value="monthly">شهرياً</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+    <script src="../js/settings.js"></script>
+</body>
+</html>

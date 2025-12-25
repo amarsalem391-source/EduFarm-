@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة الطالب - EduFarm</title>
+    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="user-container">
+        <!-- Sidebar -->
+        <aside class="user-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    <span>EduFarm</span>
+                </div>
+            </div>
+            
+            <div class="user-profile-sidebar">
+                <img src="https://ui-avatars.com/api/?name=Student&background=7CB342&color=fff" alt="Student">
+                <h3 id="sidebarUserName">welcom</h3>
+                <p>طالب - الصف الثاني</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="my-lessons.html" class="nav-item">
+                    <i class="fas fa-book-reader"></i>
+                    <span>دروسي</span>
+                </a>
+                <a href="my-tests.html" class="nav-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>اختباراتي</span>
+                </a>
+                <a href="saved.html" class="nav-item">
+                    <i class="fas fa-bookmark"></i>
+                    <span>المحفوظات</span>
+                </a>
+                <a href="certificates.html" class="nav-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>الشهادات</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>الملف الشخصي</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>الإعدادات</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../login.html" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="top-bar-right">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>مرحباً، <span id="greetName">welcom</span>! 👋</h1>
+                </div>
+                <div class="top-bar-left">
+                    <button class="notif-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">5</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Progress Overview -->
+                <div class="progress-section">
+                    <h2>نظرة عامة على تقدمك</h2>
+                    <div class="progress-cards">
+                        <div class="progress-card blue">
+                            <div class="progress-icon">
+                                <i class="fas fa-book-reader"></i>
+                            </div>
+                            <div class="progress-info">
+                                <h3>الدروس المكتملة</h3>
+                                <p class="progress-number">24 / 50</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 48%"></div>
+                                </div>
+                                <span class="progress-percent">48%</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-card green">
+                            <div class="progress-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="progress-info">
+                                <h3>الاختبارات المكتملة</h3>
+                                <p class="progress-number">12 / 20</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                                <span class="progress-percent">60%</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-card orange">
+                            <div class="progress-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="progress-info">
+                                <h3>متوسط الدرجات</h3>
+                                <p class="progress-number">85%</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                                <span class="progress-percent">ممتاز</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continue Learning -->
+                <div class="section">
+                    <div class="section-header">
+                        <h2>استكمل التعلم</h2>
+                        <a href="my-lessons.html" class="view-all">عرض الكل</a>
+                    </div>
+                    <div class="lessons-grid">
+                        <div class="lesson-card">
+                            <div class="lesson-thumbnail blue">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="lesson-info">
+                                <h3>الجبر والمعادلات</h3>
+                                <p><i class="fas fa-book"></i> رياضيات</p>
+                                <div class="lesson-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 65%"></div>
+                                    </div>
+                                    <span>65%</span>
+                                </div>
+                                <a href="#" class="btn-continue">متابعة التعلم</a>
+                            </div>
+                        </div>
+
+                        <div class="lesson-card">
+                            <div class="lesson-thumbnail green">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div class="lesson-info">
+                                <h3>التفاعلات الكيميائية</h3>
+                                <p><i class="fas fa-book"></i> العلوم</p>
+                                <div class="lesson-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 40%"></div>
+                                    </div>
+                                    <span>40%</span>
+                                </div>
+                                <a href="#" class="btn-continue">متابعة التعلم</a>
+                            </div>
+                        </div>
+
+                        <div class="lesson-card">
+                            <div class="lesson-thumbnail orange">
+                                <i class="fas fa-font"></i>
+                            </div>
+                            <div class="lesson-info">
+                                <h3>النحو والصرف</h3>
+                                <p><i class="fas fa-book"></i> اللغة العربية</p>
+                                <div class="lesson-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 80%"></div>
+                                    </div>
+                                    <span>80%</span>
+                                </div>
+                                <a href="#" class="btn-continue">متابعة التعلم</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Tests -->
+                <div class="section">
+                    <div class="section-header">
+                        <h2>الاختبارات القادمة</h2>
+                        <a href="my-tests.html" class="view-all">عرض الكل</a>
+                    </div>
+                    <div class="tests-list">
+                        <div class="test-item">
+                            <div class="test-icon red">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="test-details">
+                                <h3>اختبار الرياضيات - الجبر</h3>
+                                <p><i class="fas fa-calendar"></i> غداً - 10:00 صباحاً</p>
+                                <p><i class="fas fa-clock"></i> 45 دقيقة</p>
+                            </div>
+                            <a href="#" class="btn-test">ابدأ الآن</a>
+                        </div>
+
+                        <div class="test-item">
+                            <div class="test-icon blue">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="test-details">
+                                <h3>اختبار العلوم - الكيمياء</h3>
+                                <p><i class="fas fa-calendar"></i> بعد يومين - 2:00 مساءً</p>
+                                <p><i class="fas fa-clock"></i> 60 دقيقة</p>
+                            </div>
+                            <a href="#" class="btn-test">تفاصيل</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/user.js"></script>
+    <script>
+        // set user name from localStorage if present
+        (function(){
+            try{
+                const name = localStorage.getItem('ef_username') || 'welcome';
+                const greet = document.getElementById('greetName');
+                const side = document.getElementById('sidebarUserName');
+                if (greet) greet.innerText = name;
+                if (side) side.innerText = name;
+                // update avatar to use initials
+                const img = document.querySelector('.user-profile-sidebar img');
+                if (img && name){
+                    const encoded = encodeURIComponent(name);
+                    img.src = `https://ui-avatars.com/api/?name=${encoded}&background=7CB342&color=fff`;
+                }
+            }catch(e){console.warn(e)}
+        })();
+    </script>
+</body>
+</html>
