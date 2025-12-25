@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الدرس - EduFarm</title>
+    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .lesson-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            height: 0;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .lesson-header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .lesson-title {
+            font-size: 1.8rem;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .lesson-meta {
+            display: flex;
+            gap: 20px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .lesson-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .lesson-description {
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+        }
+
+        .resources-section {
+            margin-top: 30px;
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .resource-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .file-icon {
+            font-size: 1.5rem;
+            color: var(--primary-red);
+        }
+
+        .btn-download {
+            background: var(--primary-blue);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-download:hover {
+            background: #357ABD;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="user-container">
+        <!-- Sidebar -->
+        <aside class="user-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    <span>EduFarm</span>
+                </div>
+            </div>
+
+            <div class="user-profile-sidebar">
+                <img src="https://ui-avatars.com/api/?name=Student&background=7CB342&color=fff" alt="Student">
+                <h3 id="sidebarUserName">welcom</h3>
+                <p>طالب - الصف الثاني</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="my-lessons.html" class="nav-item active">
+                    <i class="fas fa-book-reader"></i>
+                    <span>دروسي</span>
+                </a>
+                <a href="my-tests.html" class="nav-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>اختباراتي</span>
+                </a>
+                <a href="saved.html" class="nav-item">
+                    <i class="fas fa-bookmark"></i>
+                    <span>المحفوظات</span>
+                </a>
+                <a href="certificates.html" class="nav-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>الشهادات</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>الملف الشخصي</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>الإعدادات</span>
+                </a>
+
+                <div class="sidebar-divider"></div>
+                <h4 style="padding: 0 25px; margin-bottom: 10px; opacity: 0.7;">روابط سريعة</h4>
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-globe"></i>
+                    <span>الموقع الرئيسي</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-right">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>تفاصيل الدرس</h1>
+                </div>
+                <div class="top-bar-left">
+                    <a href="my-lessons.html" class="btn-download" style="background: var(--text-light);">
+                        <i class="fas fa-arrow-right"></i> عودة للدروس
+                    </a>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="lesson-container">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title">الجبر والمعادلات الخطية</h2>
+                        <div class="lesson-meta">
+                            <span><i class="fas fa-book"></i> رياضيات</span>
+                            <span><i class="fas fa-clock"></i> 45 دقيقة</span>
+                            <span><i class="fas fa-chalkboard-teacher"></i> أ. محمد حسن</span>
+                        </div>
+                    </div>
+
+                    <div class="video-wrapper">
+                        <!-- Placeholder Youtube Video -->
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=PlaceHolder"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+
+                    <div class="lesson-description">
+                        <h3>وصف الدرس</h3>
+                        <p>
+                            في هذا الدرس، سنتعرف على المعادلات الخطية وكيفية حلها بطرق مختلفة. سنبدأ بالمفاهيم الأساسية
+                            للمتغيرات والثوابت، ثم ننتقل إلى حل المعادلات من الدرجة الأولى في مجهول واحد. يتضمن الدرس
+                            أمثلة توضيحية وتمارين عملية لتعزيز الفهم.
+                        </p>
+                    </div>
+
+                    <div class="resources-section">
+                        <h3>المرفقات والملفات</h3>
+                        <div class="resource-item">
+                            <div class="resource-info">
+                                <i class="fas fa-file-pdf file-icon"></i>
+                                <div>
+                                    <h4>ملخص الدرس (PDF)</h4>
+                                    <span style="font-size: 0.8rem; color: #777;">2.5 MB</span>
+                                </div>
+                            </div>
+                            <a href="#" class="btn-download" download>
+                                <i class="fas fa-download"></i> تحميل
+                            </a>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-info">
+                                <i class="fas fa-file-alt file-icon" style="color: var(--primary-blue);"></i>
+                                <div>
+                                    <h4>ورقة عمل وتمارين</h4>
+                                    <span style="font-size: 0.8rem; color: #777;">1.2 MB</span>
+                                </div>
+                            </div>
+                            <a href="#" class="btn-download" download>
+                                <i class="fas fa-download"></i> تحميل
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/user.js"></script>
+    <script>
+        // Use user name for sidebar
+        (function () {
+            try {
+                const name = localStorage.getItem('ef_username') || 'welcome';
+                const side = document.getElementById('sidebarUserName');
+                if (side) side.innerText = name;
+                const img = document.querySelector('.user-profile-sidebar img');
+                if (img && name) {
+                    const encoded = encodeURIComponent(name);
+                    img.src = `https://ui-avatars.com/api/?name=${encoded}&background=7CB342&color=fff`;
+                }
+            } catch (e) { console.warn(e) }
+        })();
+    </script>
+</body>
+
+</html>
