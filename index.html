@@ -189,7 +189,8 @@
                     <h3 class="card-title">الخطة الشهرية</h3>
                     <div class="price-tag"
                         style="font-size: 2.5rem; font-weight: 800; color: var(--primary-blue); margin: 15px 0;">100
-                        <span style="font-size: 1rem; color: var(--text-light);">جم/شهر</span></div>
+                        <span style="font-size: 1rem; color: var(--text-light);">جم/شهر</span>
+                    </div>
                     <ul class="pricing-features" style="list-style: none; text-align: right; margin-bottom: 25px;">
                         <li style="margin-bottom: 10px;"><i class="fas fa-check"
                                 style="color: var(--primary-blue); margin-left: 10px;"></i> وصول كامل للدروس</li>
@@ -198,7 +199,8 @@
                         <li style="margin-bottom: 10px;"><i class="fas fa-check"
                                 style="color: var(--primary-blue); margin-left: 10px;"></i> تحميل ملفات PDF</li>
                     </ul>
-                    <a href="register.html" class="btn btn-secondary" style="width: 100%;">اشترك الآن</a>
+                    <button onclick="openPaymentModal('الخطة الشهرية', '100 ج.م/شهر')" class="btn btn-secondary"
+                        style="width: 100%;">اشترك الآن</button>
                 </div>
 
                 <!-- Yearly Plan -->
@@ -209,7 +211,8 @@
                     <h3 class="card-title">الخطة السنوية</h3>
                     <div class="price-tag"
                         style="font-size: 2.5rem; font-weight: 800; color: var(--primary-orange); margin: 15px 0;">800
-                        <span style="font-size: 1rem; color: var(--text-light);">جم/سنة</span></div>
+                        <span style="font-size: 1rem; color: var(--text-light);">جم/سنة</span>
+                    </div>
                     <ul class="pricing-features" style="list-style: none; text-align: right; margin-bottom: 25px;">
                         <li style="margin-bottom: 10px;"><i class="fas fa-check"
                                 style="color: var(--primary-orange); margin-left: 10px;"></i> جميع مميزات الشهرية</li>
@@ -218,8 +221,8 @@
                         <li style="margin-bottom: 10px;"><i class="fas fa-check"
                                 style="color: var(--primary-orange); margin-left: 10px;"></i> شهادات معتمدة مجانية</li>
                     </ul>
-                    <a href="register.html" class="btn btn-primary"
-                        style="background: var(--primary-orange); width: 100%;">اشترك الآن</a>
+                    <button onclick="openPaymentModal('الخطة السنوية', '800 ج.م/سنة')" class="btn btn-primary"
+                        style="background: var(--primary-orange); width: 100%;">اشترك الآن</button>
                 </div>
             </div>
         </div>
@@ -343,7 +346,143 @@
             </div>
         </footer>
 
+        <!-- Payment Modal -->
+        <div id="paymentModal" class="modal"
+            style="display:none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5);">
+            <div class="modal-content"
+                style="background-color: #fefefe; margin: 5% auto; padding: 0; border-radius: 15px; width: 90%; max-width: 500px; box-shadow: 0 5px 30px rgba(0,0,0,0.3); animation: slideDown 0.3s ease-out;">
+
+                <div class="modal-header"
+                    style="background: var(--light-bg); padding: 20px; border-bottom: 1px solid #eee; border-radius: 15px 15px 0 0; display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="margin: 0; color: var(--dark-blue);">إتمام الاشتراك</h3>
+                    <span class="close-modal" onclick="closePaymentModal()"
+                        style="color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                </div>
+
+                <div class="modal-body" style="padding: 25px;">
+                    <div
+                        style="margin-bottom: 20px; background: #e3f2fd; padding: 15px; border-radius: 8px; border-right: 4px solid var(--primary-blue);">
+                        <h4 id="selectedPlanTitle" style="margin: 0 0 5px 0; color: var(--primary-blue);">الخطة الشهرية
+                        </h4>
+                        <p id="selectedPlanPrice" style="margin: 0; font-weight: bold; color: var(--dark-blue);">100 ج.م
+                        </p>
+                    </div>
+
+                    <form onsubmit="handlePaymentSubmit(event)">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 10px; font-weight: bold;">اختر طريقة
+                                الدفع</label>
+                            <div class="payment-methods"
+                                style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+                                <label class="payment-method-card" onclick="selectPaymentMethod('visa')" id="pm-visa"
+                                    style="border: 2px solid #eee; border-radius: 8px; padding: 10px; cursor: pointer; text-align: center; transition: all 0.3s;">
+                                    <i class="fab fa-cc-visa"
+                                        style="font-size: 24px; color: #1a1f71; display: block; margin-bottom: 5px;"></i>
+                                    <span style="font-size: 0.8rem; font-weight: bold;">Visa</span>
+                                </label>
+                                <label class="payment-method-card" onclick="selectPaymentMethod('vodafone')"
+                                    id="pm-vodafone"
+                                    style="border: 2px solid #eee; border-radius: 8px; padding: 10px; cursor: pointer; text-align: center; transition: all 0.3s;">
+                                    <i class="fas fa-mobile-alt"
+                                        style="font-size: 24px; color: #e60000; display: block; margin-bottom: 5px;"></i>
+                                    <span style="font-size: 0.8rem; font-weight: bold;">فودافون</span>
+                                </label>
+                                <label class="payment-method-card" onclick="selectPaymentMethod('instapay')"
+                                    id="pm-instapay"
+                                    style="border: 2px solid #eee; border-radius: 8px; padding: 10px; cursor: pointer; text-align: center; transition: all 0.3s;">
+                                    <i class="fas fa-qrcode"
+                                        style="font-size: 24px; color: #4b2c92; display: block; margin-bottom: 5px;"></i>
+                                    <span style="font-size: 0.8rem; font-weight: bold;">Instapay</span>
+                                </label>
+                            </div>
+                            <input type="hidden" id="selectedMethod" value="">
+                        </div>
+
+                        <!-- Visa Fields -->
+                        <div id="visaFields" class="payment-details" style="display: none;">
+                            <input type="text" placeholder="رقم البطاقة" maxlength="16" class="form-input"
+                                style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" placeholder="MM/YY" maxlength="5" class="form-input"
+                                    style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
+                                <input type="text" placeholder="CVC" maxlength="3" class="form-input"
+                                    style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                        </div>
+
+                        <!-- Vodafone Fields -->
+                        <div id="vodafoneFields" class="payment-details" style="display: none;">
+                            <div style="margin-bottom: 15px; font-size: 0.9rem; color: #666;">
+                                قم بتحويل المبلغ إلى الرقم: <strong>010xxxxxxxx</strong>
+                            </div>
+                            <input type="tel" placeholder="رقم محفظتك (المرسل منه)" class="form-input"
+                                style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+
+                        <!-- Instapay Fields -->
+                        <div id="instapayFields" class="payment-details" style="display: none;">
+                            <div style="margin-bottom: 15px; font-size: 0.9rem; color: #666;">
+                                عنوان الدفع: <strong>username@instapay</strong>
+                            </div>
+                            <input type="text" placeholder="عنوان IPA الخاص بك" class="form-input"
+                                style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary"
+                            style="width: 100%; margin-top: 20px; padding: 12px; font-weight: bold;">تأكيد
+                            الدفع</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <script src="js/main.js"></script>
+        <script>
+            function openPaymentModal(planType, price) {
+                document.getElementById('paymentModal').style.display = 'block';
+                document.getElementById('selectedPlanTitle').innerText = planType;
+                document.getElementById('selectedPlanPrice').innerText = price;
+            }
+
+            function closePaymentModal() {
+                document.getElementById('paymentModal').style.display = 'none';
+            }
+
+            function selectPaymentMethod(method) {
+                // Reset styles
+                document.querySelectorAll('.payment-method-card').forEach(el => {
+                    el.style.borderColor = '#eee';
+                    el.style.background = 'white';
+                });
+                document.querySelectorAll('.payment-details').forEach(el => el.style.display = 'none');
+
+                // Set active
+                const activeCard = document.getElementById('pm-' + method);
+                activeCard.style.borderColor = 'var(--primary-blue)';
+                activeCard.style.background = 'rgba(74, 144, 226, 0.05)';
+
+                document.getElementById('selectedMethod').value = method;
+                document.getElementById(method + 'Fields').style.display = 'block';
+            }
+
+            function handlePaymentSubmit(e) {
+                e.preventDefault();
+                const method = document.getElementById('selectedMethod').value;
+                if (!method) {
+                    alert('يرجى اختيار طريقة دفع');
+                    return;
+                }
+                alert('تم استلام طلب الاشتراك بنجاح! سيتم تفعيله قريباً.');
+                closePaymentModal();
+            }
+
+            // Close modal when clicking outside
+            window.onclick = function (event) {
+                if (event.target == document.getElementById('paymentModal')) {
+                    closePaymentModal();
+                }
+            }
+        </script>
 </body>
 
 </html>
