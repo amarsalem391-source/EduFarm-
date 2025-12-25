@@ -94,16 +94,78 @@
             </header>
 
             <!-- Page Content -->
+            <!-- Page Content -->
             <div class="dashboard-content">
                 <div class="section-header">
                     <h2>قائمة المدرسين</h2>
-                    <button class="btn btn-primary"><i class="fas fa-plus"></i> إضافة مدرس</button>
+                    <button class="btn btn-primary"
+                        onclick="document.getElementById('addTeacherModal').style.display='block'">
+                        <i class="fas fa-plus"></i> إضافة مدرس
+                    </button>
                 </div>
-                <!-- Placeholder for content -->
-                <div class="card">
-                    <p style="padding: 20px; text-align: center; color: #666;">جاري تحميل بيانات المدرسين...</p>
+
+                <div class="card data-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>اسم المدرس</th>
+                                <th>البريد الإلكتروني</th>
+                                <th>المادة</th>
+                                <th>تاريخ الانضمام</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>أحمد فتحي</td>
+                                <td>ahmed@example.com</td>
+                                <td>الرياضيات</td>
+                                <td>2024-11-15</td>
+                                <td>
+                                    <button class="action-btn btn-view"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Add Teacher Modal -->
+    <div id="addTeacherModal" class="modal"
+        style="display:none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+        <div class="modal-content"
+            style="background-color: #fefefe; margin: 10% auto; padding: 20px; border: 1px solid #888; width: 50%; border-radius: 10px;">
+            <span class="close" onclick="document.getElementById('addTeacherModal').style.display='none'"
+                style="color: #aaa; float: left; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+            <h2 style="margin-bottom: 20px;">إضافة مدرس جديد</h2>
+            <form
+                onsubmit="event.preventDefault(); alert('تم إضافة المدرس بنجاح! (محاكاة)'); document.getElementById('addTeacherModal').style.display='none';">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">الاسم الكامل</label>
+                    <input type="text" required
+                        style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">البريد الإلكتروني</label>
+                    <input type="email" required
+                        style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">كلمة المرور</label>
+                    <input type="password" required
+                        style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">المادة</label>
+                    <input type="text" required
+                        style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">حفظ</button>
+            </form>
         </div>
     </div>
 

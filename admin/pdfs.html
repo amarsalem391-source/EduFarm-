@@ -96,13 +96,61 @@
             <div class="dashboard-content">
                 <div class="section-header">
                     <h2>قائمة ملفات PDF</h2>
-                    <button class="btn btn-primary"><i class="fas fa-plus"></i> إضافة ملف</button>
+                    <button class="btn btn-primary"
+                        onclick="document.getElementById('addPdfModal').style.display='block'">
+                        <i class="fas fa-plus"></i> إضافة ملف
+                    </button>
                 </div>
-                <!-- Placeholder for content -->
-                <div class="card">
-                    <p style="padding: 20px; text-align: center; color: #666;">جاري تحميل ملفات PDF...</p>
+
+                <div class="card data-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>اسم الملف</th>
+                                <th>تاريخ الرفع</th>
+                                <th>الحجم</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ملخص كيمياء.pdf</td>
+                                <td>2024-12-15</td>
+                                <td>2.5 MB</td>
+                                <td>
+                                    <button class="action-btn btn-view"><i class="fas fa-download"></i></button>
+                                    <button class="action-btn btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Add PDF Modal -->
+    <div id="addPdfModal" class="modal"
+        style="display:none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+        <div class="modal-content"
+            style="background-color: #fefefe; margin: 10% auto; padding: 20px; border: 1px solid #888; width: 50%; border-radius: 10px;">
+            <span class="close" onclick="document.getElementById('addPdfModal').style.display='none'"
+                style="color: #aaa; float: left; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+            <h2 style="margin-bottom: 20px;">إضافة ملف PDF جديد</h2>
+            <form
+                onsubmit="event.preventDefault(); alert('تم رفع الملف بنجاح! (محاكاة)'); document.getElementById('addPdfModal').style.display='none';">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">اسم الملف</label>
+                    <input type="text" required
+                        style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">رفع ملف</label>
+                    <input type="file" accept=".pdf" required
+                        style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">رفع</button>
+            </form>
         </div>
     </div>
 
