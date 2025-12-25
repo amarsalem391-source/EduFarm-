@@ -21,6 +21,7 @@
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html" class="active">الرئيسية</a></li>
+                    <li><a href="#pricing">الاشتراكات</a></li>
                     <li><a href="#about">عن الموقع</a></li>
                     <li><a href="#contact">تواصل معنا</a></li>
                     <li><a href="login.html" class="btn-login">تسجيل الدخول</a></li>
@@ -152,122 +153,197 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section-padding" style="background: var(--white); padding: 80px 0;">
+    <!-- Pricing Section -->
+    <section id="pricing" class="section-padding" style="background: var(--light-bg); padding: 80px 0;">
         <div class="container">
-            <h2 class="section-title">عن الموقع</h2>
-            <div class="about-content"
-                style="text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-light);">
-                <p>EduFarm هي منصة تعليمية رائدة تهدف إلى توفير محتوى تعليمي متميز للطلاب في جميع المراحل الدراسية. نسعى
-                    لتبسيط العلوم والمعرفة وجعلها في متناول الجميع من خلال استخدام أحدث التقنيات وأساليب الشرح المبتكرة.
-                </p>
-                <div style="margin-top: 30px; display: flex; justify-content: center; gap: 30px;">
-                    <div style="text-align: center;">
-                        <i class="fas fa-users"
-                            style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px;"></i>
-                        <h4 style="font-weight: 700; margin-bottom: 10px;">آلاف الطلاب</h4>
-                        <p>يثق بنا آلاف الطلاب يومياً</p>
+            <h2 class="section-title">خطط الاشتراك</h2>
+            <div class="cards-grid">
+                <!-- Free Plan -->
+                <div class="card pricing-card">
+                    <div class="card-icon" style="background: rgba(124, 179, 66, 0.1); color: var(--primary-green);">
+                        <i class="fas fa-seedling"></i>
                     </div>
-                    <div style="text-align: center;">
-                        <i class="fas fa-chalkboard-teacher"
-                            style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 15px;"></i>
-                        <h4 style="font-weight: 700; margin-bottom: 10px;">نخبة المعلمين</h4>
-                        <p>محتوى معد من قبل خبراء</p>
+                    <h3 class="card-title">الخطة المجانية</h3>
+                    <div class="price-tag"
+                        style="font-size: 2.5rem; font-weight: 800; color: var(--primary-green); margin: 15px 0;">مجاناً
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section-padding" style="background: var(--light-bg); padding: 80px 0;">
-        <div class="container">
-            <h2 class="section-title">تواصل معنا</h2>
-            <div class="contact-grid"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px;">
-                <div class="contact-info"
-                    style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow);">
-                    <div style="margin-bottom: 25px;">
-                        <i class="fas fa-envelope"
-                            style="color: var(--primary-blue); font-size: 1.5rem; margin-left: 10px;"></i>
-                        <span style="font-weight: 600;">البريد الإلكتروني:</span>
-                        <p><a href="mailto:amarsalem391@gmail.com"
-                                style="text-decoration: none; color: var(--text-light);">amarsalem391@gmail.com</a></p>
-                    </div>
-                    <div style="margin-bottom: 25px;">
-                        <i class="fas fa-phone"
-                            style="color: var(--primary-green); font-size: 1.5rem; margin-left: 10px;"></i>
-                        <span style="font-weight: 600;">الهاتف:</span>
-                        <p><a href="tel:+201115841707"
-                                style="text-decoration: none; color: var(--text-light);">01115841707</a></p>
-                    </div>
-                    <div>
-                        <i class="fas fa-map-marker-alt"
-                            style="color: var(--primary-orange); font-size: 1.5rem; margin-left: 10px;"></i>
-                        <span style="font-weight: 600;">العنوان:</span>
-                        <p style="color: var(--text-light);">القاهرة، مصر</p>
-                    </div>
-                </div>
-                <form class="contact-form"
-                    style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow);">
-                    <input type="text" placeholder="الاسم"
-                        style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
-                    <input type="email" placeholder="البريد الإلكتروني"
-                        style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
-                    <textarea placeholder="رسالتك" rows="5"
-                        style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; resize: none;"></textarea>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">إرسال</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <i class="fas fa-book-open"></i>
-                        <span>EduFarm</span>
-                    </div>
-                    <p>منصة تعليمية شاملة لجميع المواد الدراسية</p>
-                </div>
-                <div class="footer-section">
-                    <h4>روابط سريعة</h4>
-                    <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="lessons.html">الدروس</a></li>
-                        <li><a href="tests.html">الاختبارات</a></li>
-                        <li><a href="videos.html">الفيديوهات</a></li>
+                    <ul class="pricing-features" style="list-style: none; text-align: right; margin-bottom: 25px;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: var(--primary-green); margin-left: 10px;"></i> وصول محدود للدروس</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: var(--primary-green); margin-left: 10px;"></i> 5 اختبارات شهرية</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-times"
+                                style="color: var(--text-light); margin-left: 10px;"></i> شهادات معتمدة</li>
                     </ul>
+                    <a href="register.html" class="btn btn-primary" style="width: 100%;">اشترك الآن</a>
                 </div>
-                <div class="footer-section">
-                    <h4>تواصل معنا</h4>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> <a
-                                href="mailto:amarsalem391@gmail.com">amarsalem391@gmail.com</a></li>
-                        <li><i class="fas fa-phone"></i> <a href="tel:+201115841707">01115841707</a></li>
-                        <li><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</li>
+
+                <!-- Monthly Plan -->
+                <div class="card pricing-card" style="transform: scale(1.05); border: 2px solid var(--primary-blue);">
+                    <div class="popular-badge"
+                        style="background: var(--primary-blue); color: white; padding: 5px 15px; border-radius: 20px; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-weight: bold;">
+                        الأكثر طلباً</div>
+                    <div class="card-icon" style="background: rgba(74, 144, 226, 0.1); color: var(--primary-blue);">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="card-title">الخطة الشهرية</h3>
+                    <div class="price-tag"
+                        style="font-size: 2.5rem; font-weight: 800; color: var(--primary-blue); margin: 15px 0;">100
+                        <span style="font-size: 1rem; color: var(--text-light);">جم/شهر</span></div>
+                    <ul class="pricing-features" style="list-style: none; text-align: right; margin-bottom: 25px;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: var(--primary-blue); margin-left: 10px;"></i> وصول كامل للدروس</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: var(--primary-blue); margin-left: 10px;"></i> اختبارات غير محدودة</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: var(--primary-blue); margin-left: 10px;"></i> تحميل ملفات PDF</li>
                     </ul>
+                    <a href="register.html" class="btn btn-secondary" style="width: 100%;">اشترك الآن</a>
                 </div>
-                <div class="footer-section">
-                    <h4>تابعنا</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+
+                <!-- Yearly Plan -->
+                <div class="card pricing-card">
+                    <div class="card-icon" style="background: rgba(255, 152, 0, 0.1); color: var(--primary-orange);">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="card-title">الخطة السنوية</h3>
+                    <div class="price-tag"
+                        style="font-size: 2.5rem; font-weight: 800; color: var(--primary-orange); margin: 15px 0;">800
+                        <span style="font-size: 1rem; color: var(--text-light);">جم/سنة</span></div>
+                    <ul class="pricing-features" style="list-style: none; text-align: right; margin-bottom: 25px;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: var(--primary-orange); margin-left: 10px;"></i> جميع مميزات الشهرية</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: var(--primary-orange); margin-left: 10px;"></i> توفير 20%</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: var(--primary-orange); margin-left: 10px;"></i> شهادات معتمدة مجانية</li>
+                    </ul>
+                    <a href="register.html" class="btn btn-primary"
+                        style="background: var(--primary-orange); width: 100%;">اشترك الآن</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- About Section -->
+        <section id="about" class="section-padding" style="background: var(--white); padding: 80px 0;">
+            <div class="container">
+                <h2 class="section-title">عن الموقع</h2>
+                <div class="about-content"
+                    style="text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-light);">
+                    <p>EduFarm هي منصة تعليمية رائدة تهدف إلى توفير محتوى تعليمي متميز للطلاب في جميع المراحل الدراسية.
+                        نسعى
+                        لتبسيط العلوم والمعرفة وجعلها في متناول الجميع من خلال استخدام أحدث التقنيات وأساليب الشرح
+                        المبتكرة.
+                    </p>
+                    <div style="margin-top: 30px; display: flex; justify-content: center; gap: 30px;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-users"
+                                style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px;"></i>
+                            <h4 style="font-weight: 700; margin-bottom: 10px;">آلاف الطلاب</h4>
+                            <p>يثق بنا آلاف الطلاب يومياً</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <i class="fas fa-chalkboard-teacher"
+                                style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 15px;"></i>
+                            <h4 style="font-weight: 700; margin-bottom: 10px;">نخبة المعلمين</h4>
+                            <p>محتوى معد من قبل خبراء</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 EduFarm. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
+        </section>
 
-    <script src="js/main.js"></script>
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding" style="background: var(--light-bg); padding: 80px 0;">
+            <div class="container">
+                <h2 class="section-title">تواصل معنا</h2>
+                <div class="contact-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px;">
+                    <div class="contact-info"
+                        style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow);">
+                        <div style="margin-bottom: 25px;">
+                            <i class="fas fa-envelope"
+                                style="color: var(--primary-blue); font-size: 1.5rem; margin-left: 10px;"></i>
+                            <span style="font-weight: 600;">البريد الإلكتروني:</span>
+                            <p><a href="mailto:amarsalem391@gmail.com"
+                                    style="text-decoration: none; color: var(--text-light);">amarsalem391@gmail.com</a>
+                            </p>
+                        </div>
+                        <div style="margin-bottom: 25px;">
+                            <i class="fas fa-phone"
+                                style="color: var(--primary-green); font-size: 1.5rem; margin-left: 10px;"></i>
+                            <span style="font-weight: 600;">الهاتف:</span>
+                            <p><a href="tel:+201115841707"
+                                    style="text-decoration: none; color: var(--text-light);">01115841707</a></p>
+                        </div>
+                        <div>
+                            <i class="fas fa-map-marker-alt"
+                                style="color: var(--primary-orange); font-size: 1.5rem; margin-left: 10px;"></i>
+                            <span style="font-weight: 600;">العنوان:</span>
+                            <p style="color: var(--text-light);">القاهرة، مصر</p>
+                        </div>
+                    </div>
+                    <form class="contact-form"
+                        style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow);">
+                        <input type="text" placeholder="الاسم"
+                            style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+                        <input type="email" placeholder="البريد الإلكتروني"
+                            style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+                        <textarea placeholder="رسالتك" rows="5"
+                            style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; resize: none;"></textarea>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">إرسال</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <i class="fas fa-book-open"></i>
+                            <span>EduFarm</span>
+                        </div>
+                        <p>منصة تعليمية شاملة لجميع المواد الدراسية</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>روابط سريعة</h4>
+                        <ul>
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="lessons.html">الدروس</a></li>
+                            <li><a href="tests.html">الاختبارات</a></li>
+                            <li><a href="videos.html">الفيديوهات</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>تواصل معنا</h4>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> <a
+                                    href="mailto:amarsalem391@gmail.com">amarsalem391@gmail.com</a></li>
+                            <li><i class="fas fa-phone"></i> <a href="tel:+201115841707">01115841707</a></li>
+                            <li><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>تابعنا</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 EduFarm. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/main.js"></script>
 </body>
 
 </html>
