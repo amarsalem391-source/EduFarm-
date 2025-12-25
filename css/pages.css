@@ -221,6 +221,25 @@
     box-shadow: var(--shadow);
 }
 
+.btn-watch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, var(--primary-red), #C62828);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-watch:hover {
+    transform: translateX(-5px);
+    box-shadow: var(--shadow);
+}
+
 /* Pagination */
 .pagination {
     display: flex;
