@@ -174,7 +174,8 @@
 
                 <div class="section-header">
                     <h2>سجل السحوبات</h2>
-                    <button class="btn-withdraw" onclick="requestWithdrawal()">
+                    <button class="btn-withdraw"
+                        onclick="document.getElementById('withdrawalModal').style.display='block'">
                         <i class="fas fa-money-bill-wave"></i> طلب سحب
                     </button>
                 </div>
@@ -184,6 +185,7 @@
                         <tr>
                             <th>رقم المعاملة</th>
                             <th>المبلغ</th>
+                            <th>طريقة السحب</th>
                             <th>التاريخ</th>
                             <th>الحالة</th>
                             <th>الإجراءات</th>
@@ -197,21 +199,63 @@
         </main>
     </div>
 
+    <!-- Withdrawal Modal -->
+    <div id="withdrawalModal" class="modal"
+        style="display:none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+        <div class="modal-content"
+            style="background-color: #fefefe; margin: 10% auto; padding: 20px; border: 1px solid #888; width: 90%; max-width: 500px; border-radius: 10px;">
+            <span class="close" onclick="document.getElementById('withdrawalModal').style.display='none'"
+                style="color: #aaa; float: left; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+            <h2 style="margin-bottom: 20px; color: var(--dark-blue);">طلب سحب جديد</h2>
+            <form onsubmit="handleWithdrawalSubmit(event)">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">المبلغ المراد سحبه</label>
+                    <input type="number" id="withdrawAmount" required
+                        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"
+                        placeholder="أدخل المبلغ (ج.م)">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">طريقة السحب</label>
+                    <select id="withdrawMethod" onchange="toggleMethodFields()"
+                        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        <option value="vodafone">فودافون كاش (Vodafone Cash)</option>
+                        <option value="instapay">انستا باي (Instapay)</option>
+                    </select>
+                </div>
+
+                <div id="vodafoneField" class="form-group" style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">رقم المحفظة</label>
+                    <input type="tel" id="vodafoneNumber"
+                        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"
+                        placeholder="010xxxxxxx">
+                </div>
+
+                <div id="instapayField" class="form-group" style="margin-bottom: 15px; display: none;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">عنوان الدفع (IPA)</label>
+                    <input type="text" id="instapayAddress"
+                        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"
+                        placeholder="username@instapay">
+                </div>
+
+                <button type="submit" class="btn-withdraw"
+                    style="width: 100%; justify-content: center; margin-top: 10px;">تأكيد الطلب</button>
+            </form>
+        </div>
+    </div>
+
     <script>
         const API_URL = 'http://localhost:3000/api';
 
-        // Mock data for demo if server is not reachable
+        // Mock data
         const mockWithdrawals = [
-            { id: 1, amount: 500, request_date: '2024-12-25', status: 'pending' },
-            { id: 2, amount: 1200, request_date: '2024-12-20', status: 'approved' }
+            { id: 1, amount: 500, method: 'vodafone', request_date: '2024-12-25', status: 'pending' },
+            { id: 2, amount: 1200, method: 'instapay', request_date: '2024-12-20', status: 'approved' }
         ];
 
         async function loadData() {
             try {
                 // In a real scenario, fetch from API
-                // const res = await fetch(`${API_URL}/withdrawals`);
-                // const data = await res.json();
-
                 renderWithdrawals(mockWithdrawals);
                 document.getElementById('totalEarnings').innerText = '1700 ج.م';
                 document.getElementById('withdrawableBalance').innerText = '500 ج.م';
@@ -226,27 +270,61 @@
                 <tr>
                     <td>#${w.id}</td>
                     <td>${w.amount} ج.م</td>
+                    <td>${w.method === 'vodafone' ? 'فودافون كاش' : 'انستا باي'}</td>
                     <td>${w.request_date}</td>
                     <td><span class="status-badge status-${w.status}">${w.status === 'pending' ? 'قيد الانتظار' : 'تم التحويل'}</span></td>
                     <td>
-                        ${w.status === 'pending' ? '<button onclick="approveWithdrawal(' + w.id + ')" style="color: green; background: none; border: none; cursor: pointer;">موافقة</button>' : '-'}
+                        ${w.status === 'pending' ? '<button onclick="approveWithdrawal(' + w.id + ')" style="color: green; background: none; border: none; cursor: pointer; font-weight: bold;">موافقة</button>' : '-'}
                     </td>
                 </tr>
             `).join('');
         }
 
-        function requestWithdrawal() {
-            const amount = prompt("أدخل المبلغ المراد سحبه:");
-            if (amount) {
-                alert("تم تقديم طلب السحب بنجاح!");
-                // Here you would call POST /api/withdrawals
+        function toggleMethodFields() {
+            const method = document.getElementById('withdrawMethod').value;
+            if (method === 'vodafone') {
+                document.getElementById('vodafoneField').style.display = 'block';
+                document.getElementById('instapayField').style.display = 'none';
+            } else {
+                document.getElementById('vodafoneField').style.display = 'none';
+                document.getElementById('instapayField').style.display = 'block';
             }
+        }
+
+        function handleWithdrawalSubmit(e) {
+            e.preventDefault();
+            const amount = document.getElementById('withdrawAmount').value;
+            const method = document.getElementById('withdrawMethod').value;
+            let details = '';
+
+            if (method === 'vodafone') {
+                details = document.getElementById('vodafoneNumber').value;
+                if (!details) { alert('يرجى إدخال رقم المحفظة'); return; }
+            } else {
+                details = document.getElementById('instapayAddress').value;
+                if (!details) { alert('يرجى إدخال عنوان Instapay'); return; }
+            }
+
+            alert(`تم استلام طلب سحب بقيمة ${amount} ج.م عبر ${method === 'vodafone' ? 'فودافون كاش' : 'انستا باي'}.\nالتفاصيل: ${details}`);
+            document.getElementById('withdrawalModal').style.display = 'none';
+
+            // Simulate adding to list
+            mockWithdrawals.unshift({
+                id: mockWithdrawals.length + 1,
+                amount: amount,
+                method: method,
+                request_date: new Date().toISOString().split('T')[0],
+                status: 'pending'
+            });
+            renderWithdrawals(mockWithdrawals);
         }
 
         function approveWithdrawal(id) {
             if (confirm("هل أنت متأكد من الموافقة على هذا السحب؟")) {
+                const item = mockWithdrawals.find(w => w.id === id);
+                if (item) item.status = 'approved';
+                renderWithdrawals(mockWithdrawals);
                 alert("تمت الموافقة بنجاح!");
-                // Here you would call POST /api/withdrawals/:id/approve
             }
         }
 
