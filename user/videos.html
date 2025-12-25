@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبة الفيديو - EduFarm</title>
+    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .video-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-thumb {
+            position: relative;
+            padding-bottom: 56.25%;
+            background: #000;
+        }
+
+        .video-thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            color: var(--primary-red);
+            transition: 0.3s;
+        }
+
+        .video-card:hover .play-icon {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: #fff;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark-blue);
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="user-container">
+        <!-- Sidebar -->
+        <aside class="user-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    <span>EduFarm</span>
+                </div>
+            </div>
+
+            <div class="user-profile-sidebar">
+                <img src="https://ui-avatars.com/api/?name=Student&background=7CB342&color=fff" alt="Student">
+                <h3 id="sidebarUserName">welcom</h3>
+                <p>طالب - الصف الأول الابتدائي</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="my-lessons.html" class="nav-item">
+                    <i class="fas fa-book-reader"></i>
+                    <span>دروسي</span>
+                </a>
+                <a href="my-tests.html" class="nav-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>اختباراتي</span>
+                </a>
+                <a href="saved.html" class="nav-item">
+                    <i class="fas fa-bookmark"></i>
+                    <span>المحفوظات</span>
+                </a>
+                <a href="certificates.html" class="nav-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>الشهادات</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>الملف الشخصي</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>الإعدادات</span>
+                </a>
+
+                <div class="sidebar-divider"></div>
+                <!-- Redirecting the sidebar video link to THIS page is handled via JS or changing all sidebar files, 
+                     but for now this page IS the destination if linked correctly -->
+                <a href="videos.html" class="nav-item active">
+                    <i class="fas fa-video"></i>
+                    <span>مكتبة الفيديو</span>
+                </a>
+
+                <div class="sidebar-footer">
+                    <a href="../index.html" class="nav-item logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>تسجيل الخروج</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-right">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>مكتبة الفيديو التعليمية</h1>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="items-grid">
+                    <!-- Arabic Video -->
+                    <div class="video-card">
+                        <div class="video-thumb" onclick="location.href='lesson-details.html'">
+                            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Video">
+                            <div class="play-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">أغنية الحروف العربية للأطفال</h3>
+                            <div class="video-meta">
+                                <span><i class="fas fa-book"></i> لغة عربية</span>
+                                <span><i class="fas fa-clock"></i> 5:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Math Video -->
+                    <div class="video-card">
+                        <div class="video-thumb" onclick="location.href='lesson-details.html'">
+                            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Video">
+                            <div class="play-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">تعلم الجمع مع الفواكه</h3>
+                            <div class="video-meta">
+                                <span><i class="fas fa-calculator"></i> حساب</span>
+                                <span><i class="fas fa-clock"></i> 8:30</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- English Video -->
+                    <div class="video-card">
+                        <div class="video-thumb" onclick="location.href='lesson-details.html'">
+                            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Video">
+                            <div class="play-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Learn Body Parts Song</h3>
+                            <div class="video-meta">
+                                <span><i class="fas fa-language"></i> English</span>
+                                <span><i class="fas fa-clock"></i> 3:45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/user.js"></script>
+    <script>
+        (function () {
+            try {
+                const name = localStorage.getItem('ef_username') || 'welcome';
+                const side = document.getElementById('sidebarUserName');
+                if (side) side.innerText = name;
+                const img = document.querySelector('.user-profile-sidebar img');
+                if (img && name) {
+                    const encoded = encodeURIComponent(name);
+                    img.src = `https://ui-avatars.com/api/?name=${encoded}&background=7CB342&color=fff`;
+                }
+            } catch (e) { console.warn(e) }
+        })();
+    </script>
+</body>
+
+</html>
