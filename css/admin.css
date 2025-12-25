@@ -74,24 +74,30 @@ body {
 .nav-item {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 15px 25px;
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
+    gap: 12px;
+    padding: 12px 20px;
+    margin: 8px 15px;
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-decoration: none !important;
     transition: all 0.3s;
-    border-right: 3px solid transparent;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .nav-item:hover {
-    background: var(--sidebar-hover);
-    color: var(--white);
-    border-right-color: var(--primary-blue);
+    background: var(--primary-blue);
+    color: var(--white) !important;
+    transform: translateX(-5px);
+    border-color: var(--primary-blue);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
 }
 
 .nav-item.active {
-    background: var(--sidebar-hover);
-    color: var(--white);
-    border-right-color: var(--primary-green);
+    background: linear-gradient(135deg, var(--primary-green), #689F38);
+    color: var(--white) !important;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(124, 179, 66, 0.3);
 }
 
 .nav-item i {
