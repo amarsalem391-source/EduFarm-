@@ -26,6 +26,24 @@ db.prepare(`CREATE TABLE IF NOT EXISTS users (
   userType TEXT DEFAULT 'student'
 )`).run();
 
+// Initialize earnings table
+db.prepare(`CREATE TABLE IF NOT EXISTS earnings (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  teacher_email TEXT NOT NULL,
+  amount REAL DEFAULT 0,
+  date TEXT DEFAULT CURRENT_TIMESTAMP,
+  details TEXT
+)`).run();
+
+// Initialize withdrawals table
+db.prepare(`CREATE TABLE IF NOT EXISTS withdrawals (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  teacher_email TEXT NOT NULL,
+  amount REAL NOT NULL,
+  request_date TEXT DEFAULT CURRENT_TIMESTAMP,
+  status TEXT DEFAULT 'pending'
+)`).run();
+
 const JWT_SECRET = process.env.JWT_SECRET || 'dev_secret_change_me';
 
 // Register
@@ -87,6 +105,71 @@ app.get('/api/me', authenticateToken, (req,res)=>{
   const u = req.user || {};
   res.json({ success:true, user: { name: u.name, email: u.email, userType: u.userType } });
 });
+
+// --- Earnings & Withdrawals API ---
+
+// Get all earnings (Admin) or specific teacher
+app.get('/api/earnings', authenticateToken, (req, res) => {
+    try {
+        let stmt;
+        if (req.user.userType === 'admin') {
+            stmt = db.prepare('SELECT * FROM earnings ORDER BY date DESC');
+        } else {
+             stmt = db.prepare('SELECT * FROM earnings WHERE teacher_email = ? ORDER BY date DESC');
+        }
+        const rows = req.user.userType === 'admin' ? stmt.all() : stmt.all(req.user.email);
+        res.json({ success: true, data: rows });
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ success: false, message: 'DB Error' });
+    }
+});
+
+// Get withdrawals
+app.get('/api/withdrawals', authenticateToken, (req, res) => {
+    try {
+        let stmt;
+        if (req.user.userType === 'admin') {
+            stmt = db.prepare('SELECT * FROM withdrawals ORDER BY request_date DESC');
+        } else {
+             stmt = db.prepare('SELECT * FROM withdrawals WHERE teacher_email = ? ORDER BY request_date DESC');
+        }
+        const rows = req.user.userType === 'admin' ? stmt.all() : stmt.all(req.user.email);
+        res.json({ success: true, data: rows });
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ success: false, message: 'DB Error' });
+    }
+});
+
+// Request withdrawal
+app.post('/api/withdrawals', authenticateToken, (req, res) => {
+    const { amount } = req.body;
+    if (!amount || amount <= 0) return res.status(400).json({ success: false, message: 'Invalid amount' });
+    try {
+        // Here you might want to check if they have enough balance
+        const stmt = db.prepare('INSERT INTO withdrawals (teacher_email, amount) VALUES (?, ?)');
+        stmt.run(req.user.email, amount);
+        res.json({ success: true, message: 'Request submitted' });
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ success: false, message: 'DB Error' });
+    }
+});
+
+// Approve withdrawal (Admin)
+app.post('/api/withdrawals/:id/approve', authenticateToken, (req, res) => {
+    if (req.user.userType !== 'admin') return res.status(403).json({ success: false, message: 'Admin only' });
+    try {
+        const stmt = db.prepare('UPDATE withdrawals SET status = "approved" WHERE id = ?');
+        stmt.run(req.params.id);
+        res.json({ success: true, message: 'Approved' });
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ success: false, message: 'DB Error' });
+    }
+});
+
 
 // Serve PDFs statically from ../pdfs (if exist)
 app.use('/pdfs', express.static(path.join(__dirname, '..', 'pdfs')));

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الأرباح - EduFarm</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .bg-green {
+            background: #4CAF50;
+        }
+
+        .bg-blue {
+            background: #2196F3;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-withdraw {
+            background: #FF9800;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .withdraw-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .withdraw-table th,
+        .withdraw-table td {
+            padding: 15px;
+            text-align: right;
+            border-bottom: 1px solid #eee;
+        }
+
+        .withdraw-table th {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .status-pending {
+            background: #FFF3E0;
+            color: #EF6C00;
+        }
+
+        .status-approved {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>EduFarm Admin</h3>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    <i class="fas fa-tachometer-alt"></i> لوحة التحكم
+                </a>
+                <a href="students.html" class="menu-item">
+                    <i class="fas fa-user-graduate"></i> إدارة الطلاب
+                </a>
+                <a href="teachers.html" class="menu-item">
+                    <i class="fas fa-chalkboard-teacher"></i> إدارة المدرسين
+                </a>
+                <a href="lessons.html" class="menu-item">
+                    <i class="fas fa-book"></i> إدارة الدروس
+                </a>
+                <a href="tests.html" class="menu-item">
+                    <i class="fas fa-clipboard-list"></i> إدارة الاختبارات
+                </a>
+                <a href="pdfs.html" class="menu-item">
+                    <i class="fas fa-file-pdf"></i> إدارة ملفات PDF
+                </a>
+                <a href="videos.html" class="menu-item">
+                    <i class="fas fa-video"></i> إدارة الفيديوهات
+                </a>
+                <a href="earnings.html" class="menu-item active">
+                    <i class="fas fa-hand-holding-usd"></i> الأرباح
+                </a>
+                <a href="reports.html" class="menu-item">
+                    <i class="fas fa-chart-bar"></i> التقارير
+                </a>
+                <a href="settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i> الإعدادات
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="user-info">
+                    <span>مرحباً، المسؤول</span>
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=random" alt="Admin">
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-green"><i class="fas fa-dollar-sign"></i></div>
+                        <div>
+                            <h4>إجمالي الأرباح</h4>
+                            <h2 id="totalEarnings">0 ج.م</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-blue"><i class="fas fa-wallet"></i></div>
+                        <div>
+                            <h4>الرصيد القابل للسحب</h4>
+                            <h2 id="withdrawableBalance">0 ج.م</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h2>سجل السحوبات</h2>
+                    <button class="btn-withdraw" onclick="requestWithdrawal()">
+                        <i class="fas fa-money-bill-wave"></i> طلب سحب
+                    </button>
+                </div>
+
+                <table class="withdraw-table">
+                    <thead>
+                        <tr>
+                            <th>رقم المعاملة</th>
+                            <th>المبلغ</th>
+                            <th>التاريخ</th>
+                            <th>الحالة</th>
+                            <th>الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="withdrawalsList">
+                        <!-- Data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api';
+
+        // Mock data for demo if server is not reachable
+        const mockWithdrawals = [
+            { id: 1, amount: 500, request_date: '2024-12-25', status: 'pending' },
+            { id: 2, amount: 1200, request_date: '2024-12-20', status: 'approved' }
+        ];
+
+        async function loadData() {
+            try {
+                // In a real scenario, fetch from API
+                // const res = await fetch(`${API_URL}/withdrawals`);
+                // const data = await res.json();
+
+                renderWithdrawals(mockWithdrawals);
+                document.getElementById('totalEarnings').innerText = '1700 ج.م';
+                document.getElementById('withdrawableBalance').innerText = '500 ج.م';
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
+        function renderWithdrawals(withdrawals) {
+            const tbody = document.getElementById('withdrawalsList');
+            tbody.innerHTML = withdrawals.map(w => `
+                <tr>
+                    <td>#${w.id}</td>
+                    <td>${w.amount} ج.م</td>
+                    <td>${w.request_date}</td>
+                    <td><span class="status-badge status-${w.status}">${w.status === 'pending' ? 'قيد الانتظار' : 'تم التحويل'}</span></td>
+                    <td>
+                        ${w.status === 'pending' ? '<button onclick="approveWithdrawal(' + w.id + ')" style="color: green; background: none; border: none; cursor: pointer;">موافقة</button>' : '-'}
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function requestWithdrawal() {
+            const amount = prompt("أدخل المبلغ المراد سحبه:");
+            if (amount) {
+                alert("تم تقديم طلب السحب بنجاح!");
+                // Here you would call POST /api/withdrawals
+            }
+        }
+
+        function approveWithdrawal(id) {
+            if (confirm("هل أنت متأكد من الموافقة على هذا السحب؟")) {
+                alert("تمت الموافقة بنجاح!");
+                // Here you would call POST /api/withdrawals/:id/approve
+            }
+        }
+
+        window.onload = loadData;
+    </script>
+</body>
+
+</html>
