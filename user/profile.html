@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي - EduFarm</title>
+    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="user-container">
+        <!-- Sidebar -->
+        <aside class="user-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    <span>EduFarm</span>
+                </div>
+            </div>
+
+            <div class="user-profile-sidebar">
+                <img src="https://ui-avatars.com/api/?name=Student&background=7CB342&color=fff" alt="Student">
+                <h3 id="sidebarUserName">welcom</h3>
+                <p>طالب - الصف الثاني</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="my-lessons.html" class="nav-item">
+                    <i class="fas fa-book-reader"></i>
+                    <span>دروسي</span>
+                </a>
+                <a href="my-tests.html" class="nav-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>اختباراتي</span>
+                </a>
+                <a href="saved.html" class="nav-item">
+                    <i class="fas fa-bookmark"></i>
+                    <span>المحفوظات</span>
+                </a>
+                <a href="certificates.html" class="nav-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>الشهادات</span>
+                </a>
+                <a href="profile.html" class="nav-item active">
+                    <i class="fas fa-user"></i>
+                    <span>الملف الشخصي</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>الإعدادات</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-right">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>الملف الشخصي</h1>
+                </div>
+                <div class="top-bar-left">
+                    <button class="notif-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">5</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="profile-container"
+                    style="background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <form>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 5px;">الاسم الكامل</label>
+                            <input type="text" value="آسر سالم"
+                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 5px;">البريد الإلكتروني</label>
+                            <input type="email" value="amarsalem391@gmail.com"
+                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 5px;">رقم الهاتف</label>
+                            <input type="tel" value="01115841707"
+                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+                        <button type="button" class="btn-save"
+                            style="background: var(--primary-green, #4CAF50); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">حفظ
+                            التغييرات</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/user.js"></script>
+    <script>
+        (function () {
+            try {
+                const name = localStorage.getItem('ef_username') || 'welcome';
+                const side = document.getElementById('sidebarUserName');
+                if (side) side.innerText = name;
+                const img = document.querySelector('.user-profile-sidebar img');
+                if (img && name) {
+                    const encoded = encodeURIComponent(name);
+                    img.src = `https://ui-avatars.com/api/?name=${encoded}&background=7CB342&color=fff`;
+                }
+            } catch (e) { console.warn(e) }
+        })();
+    </script>
+</body>
+
+</html>
