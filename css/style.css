@@ -831,3 +831,38 @@ body {
         font-size: 1rem;
     }
 }
+
+/* Dark theme variables */
+:root.dark-theme {
+    --primary-blue: #0F6B5D;
+    --primary-green: #2AA67A;
+    --primary-orange: #FFB980;
+    --primary-red: #E57373;
+    --dark-blue: #e6f3ef;
+    --light-bg: #091513;
+    --white: #0f1a18;
+    --text-dark: #e6f3ef;
+    --text-light: #bcdacb;
+    --shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.06);
+    background: transparent;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+.theme-toggle .icon {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}

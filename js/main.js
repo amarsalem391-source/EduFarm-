@@ -181,3 +181,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const sel = document.querySelector('.grade-select');
     if (sel && sel.value) filterByGrade(sel.value);
 });
+
+// Theme toggle: persist user preference
+function applyTheme(theme) {
+    if (theme === 'dark') document.documentElement.classList.add('dark-theme');
+    else document.documentElement.classList.remove('dark-theme');
+}
+
+const themeToggle = document.querySelector('.theme-toggle');
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark-theme');
+        localStorage.setItem('site-theme', isDark ? 'dark' : 'light');
+        // update aria-pressed for accessibility
+        themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    });
+}
+
+// Apply saved theme on load
+const savedTheme = localStorage.getItem('site-theme');
+if (savedTheme) applyTheme(savedTheme);
