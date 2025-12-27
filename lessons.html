@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الدروس - EduFarm</title>
+    <title>الدروس - Acwad Technology</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,11 +17,18 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
-                    <img src="images/logo.png" alt="EduFarm" style="height: 50px;">
+                    <img src="images/acwad-logo.svg" alt="Acwad Technology" style="height: 48px;" class="brand-logo">
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="lessons.html" class="active">الدروس</a></li>
+                    <li><a href="lessons.html#ai">AI</a></li>
+                    <li><a href="lessons.html#cyber">Cybersecurity</a></li>
+                    <li><a href="lessons.html#web">Web</a></li>
+                    <li><a href="lessons.html#backend">Backend</a></li>
+                    <li><a href="lessons.html#frontend">Frontend</a></li>
+                    <li><a href="lessons.html#flutter">Flutter</a></li>
+                    <li><a href="lessons.html#git">Git</a></li>
                     <li><a href="tests.html">الاختبارات</a></li>
                     <li><a href="pdfs.html">ملفات PDF</a></li>
                     <li><a href="videos.html">الفيديوهات</a></li>
@@ -53,32 +60,27 @@
     <section class="content-section">
         <div class="container">
             <!-- Filters -->
-            <div class="filters-bar">
+                <div class="filters-bar">
                 <div class="filter-group">
-                    <label>المادة:</label>
-                    <select class="filter-select">
-                        <option value="">جميع المواد</option>
-                        <option value="math">الرياضيات</option>
-                        <option value="science">العلوم</option>
-                        <option value="arabic">اللغة العربية</option>
-                        <option value="english">اللغة الإنجليزية</option>
-                        <option value="history">التاريخ</option>
-                        <option value="geography">الجغرافيا</option>
+                    <label>الدورة:</label>
+                    <select class="filter-select" id="courseSelect">
+                        <option value="">جميع الدورات</option>
+                        <option value="ai">AI</option>
+                        <option value="cyber">Cybersecurity</option>
+                        <option value="web">Web</option>
+                        <option value="backend">Backend</option>
+                        <option value="frontend">Frontend</option>
+                        <option value="flutter">Flutter</option>
+                        <option value="git">Git</option>
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label>الصف:</label>
-                    <select class="filter-select grade-select" id="gradeSelect">
-                        <option value="">جميع الصفوف</option>
-                        <option value="1">الصف الأول الابتدائي</option>
-                        <option value="2">الصف الثاني الابتدائي</option>
-                        <option value="3">الصف الثالث الابتدائي</option>
-                        <option value="4">الصف الرابع الابتدائي</option>
-                        <option value="5">الصف الخامس الابتدائي</option>
-                        <option value="6">الصف السادس الابتدائي</option>
-                        <option value="7">الصف الأول الإعدادي</option>
-                        <option value="8">الصف الثاني الإعدادي</option>
-                        <option value="9">الصف الثالث الإعدادي</option>
+                    <label>المستوى:</label>
+                    <select class="filter-select grade-select" id="levelSelect">
+                        <option value="">جميع المستويات</option>
+                        <option value="beginner">مبتدئ</option>
+                        <option value="intermediate">متوسط</option>
+                        <option value="advanced">متقدم</option>
                     </select>
                 </div>
                 <div class="search-box">
@@ -87,26 +89,104 @@
                 </div>
             </div>
 
+            <!-- Git intro -->
+            <div class="git-intro" style="background: rgba(15,107,93,0.06); padding: 16px; border-radius: 10px; margin: 18px 0;">
+                <h3 style="margin:0 0 8px 0; color: var(--primary-blue);">مقدمة سريعة عن Git</h3>
+                <p style="margin:0; color: var(--text-light);">Git نظام تحكم في الإصدارات يُستخدم لإدارة الشيفرة ومتابعة التغييرات. نوصي ببدء "Git Basics" قبل العمل على المشاريع. <a href="#git" style="color:var(--primary-blue); text-decoration:underline;">عرض دروس Git</a></p>
+            </div>
+
             <!-- Lessons Grid -->
             <div class="items-grid">
-                <!-- Lesson Card 1 -->
-                <div class="item-card" data-grade="2">
-                    <div class="item-icon" style="background: rgba(74, 144, 226, 0.1); color: var(--primary-blue);">
-                        <i class="fas fa-calculator"></i>
+                <!-- Programming Lesson Cards -->
+                <div class="item-card" data-course="ai" data-level="beginner">
+                    <div class="item-icon" style="background: rgba(15,107,93,0.08); color: var(--primary-blue);">
+                        <i class="fas fa-brain"></i>
                     </div>
                     <div class="item-content">
-                        <h3>الجبر والمعادلات</h3>
-                        <p class="item-meta">
-                            <span><i class="fas fa-book"></i> رياضيات</span>
-                            <span><i class="fas fa-layer-group"></i> الصف الثاني</span>
-                        </p>
-                        <p class="item-description">شرح مفصل للجبر والمعادلات من الدرجة الأولى والثانية مع أمثلة تطبيقية
-                        </p>
-                        <div class="item-stats">
-                            <span><i class="fas fa-clock"></i> 45 دقيقة</span>
-                            <span><i class="fas fa-user"></i> 250 طالب</span>
-                        </div>
+                        <h3>مقدمة في الذكاء الاصطناعي</h3>
+                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> AI</span><span><i class="fas fa-signal"></i> مبتدئ</span></p>
+                        <p class="item-description">أساسيات التعلم الآلي، الشبكات العصبية، ومشاريع بسيطة.</p>
+                        <div class="item-stats"><span><i class="fas fa-clock"></i> 80 دقيقة</span><span><i class="fas fa-user"></i> 1200 طالب</span></div>
                         <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <div class="item-card" data-course="cyber" data-level="intermediate">
+                    <div class="item-icon" style="background: rgba(0,0,0,0.06); color: var(--primary-green);">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="item-content">
+                        <h3>أساسيات الأمن السيبراني</h3>
+                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> Cybersecurity</span><span><i class="fas fa-signal"></i> متوسط</span></p>
+                        <p class="item-description">مبادئ الحماية، الشبكات، وأنواع الهجمات وكيفية الوقاية.</p>
+                        <div class="item-stats"><span><i class="fas fa-clock"></i> 70 دقيقة</span><span><i class="fas fa-user"></i> 560 طالب</span></div>
+                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <div class="item-card" data-course="web" data-level="beginner">
+                    <div class="item-icon" style="background: rgba(42,166,122,0.08); color: var(--primary-blue);">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="item-content">
+                        <h3>تطوير الويب للمبتدئين</h3>
+                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> Web</span><span><i class="fas fa-signal"></i> مبتدئ</span></p>
+                        <p class="item-description">HTML, CSS, وJavaScript لبناء صفحات تفاعلية.</p>
+                        <div class="item-stats"><span><i class="fas fa-clock"></i> 60 دقيقة</span><span><i class="fas fa-user"></i> 900 طالب</span></div>
+                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <div class="item-card" data-course="backend" data-level="intermediate">
+                    <div class="item-icon" style="background: rgba(15,107,93,0.06); color: var(--dark-blue);">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="item-content">
+                        <h3>برمجة الخوادم وقواعد البيانات</h3>
+                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> Backend</span><span><i class="fas fa-signal"></i> متوسط</span></p>
+                        <p class="item-description">APIs، قواعد البيانات، وأساليب النشر.</p>
+                        <div class="item-stats"><span><i class="fas fa-clock"></i> 95 دقيقة</span><span><i class="fas fa-user"></i> 430 طالب</span></div>
+                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <div class="item-card" data-course="frontend" data-level="intermediate">
+                    <div class="item-icon" style="background: rgba(15,107,93,0.06); color: var(--primary-blue);">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="item-content">
+                        <h3>تطوير الواجهات الحديثة</h3>
+                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> Frontend</span><span><i class="fas fa-signal"></i> متوسط</span></p>
+                        <p class="item-description">مكتبات حديثة، أنماط تصميم، وتجربة المستخدم.</p>
+                        <div class="item-stats"><span><i class="fas fa-clock"></i> 75 دقيقة</span><span><i class="fas fa-user"></i> 610 طالب</span></div>
+                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <div class="item-card" data-course="flutter" data-level="beginner">
+                    <div class="item-icon" style="background: rgba(42,166,122,0.06); color: var(--primary-blue);">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="item-content">
+                        <h3>Flutter لتطوير التطبيقات</h3>
+                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> Flutter</span><span><i class="fas fa-signal"></i> مبتدئ</span></p>
+                        <p class="item-description">بناء تطبيقات متعددة المنصات باستخدام Flutter وDart.</p>
+                        <div class="item-stats"><span><i class="fas fa-clock"></i> 85 دقيقة</span><span><i class="fas fa-user"></i> 480 طالب</span></div>
+                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <!-- Git special card -->
+                <div class="item-card" id="git" data-course="git" data-level="beginner">
+                    <div class="item-icon" style="background: rgba(15,107,93,0.12); color: #fff;">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <div class="item-content">
+                        <h3>Git Basics — تعرّف على Git</h3>
+                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> Git</span><span><i class="fas fa-signal"></i> مبتدئ</span></p>
+                        <p class="item-description">مقدمة عملية عن Git: إنشاء مستودع، الإضافات، الالتزامات، والفروع.</p>
+                        <div class="item-stats"><span><i class="fas fa-clock"></i> 40 دقيقة</span><span><i class="fas fa-user"></i> 1500 طالب</span></div>
+                        <a href="#" class="btn-view">ابدأ الآن <i class="fas fa-arrow-left"></i></a>
                     </div>
                 </div>
 
