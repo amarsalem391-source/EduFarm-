@@ -119,6 +119,35 @@ body {
     transition: 0.3s;
 }
 
+/* Clean header / responsive nav */
+.header {
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 12px 0;
+}
+.brand-logo { height: 36px; margin-left: 8px; }
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.nav-menu { display: flex; gap: 18px; align-items: center; list-style: none; }
+.nav-menu li { list-style: none; }
+.nav-menu a { padding: 6px 8px; border-radius: 6px; }
+.theme-toggle { background: transparent; border: 1px solid rgba(0,0,0,0.06); padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+
+@media (max-width: 900px) {
+    .nav-menu { display: none; position: absolute; right: 0; left: 0; top: 64px; background: var(--white); padding: 12px 20px; flex-direction: column; gap: 8px; box-shadow: var(--shadow); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; }
+    .nav-menu.active { display: flex; }
+    .hamburger { display: flex; }
+    .nav-actions .theme-toggle { display: none; }
+}
+
 /* ===== Hero Section ===== */
 .hero {
     position: relative;
