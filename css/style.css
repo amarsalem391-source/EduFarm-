@@ -6,11 +6,11 @@
 }
 
 :root {
-    --primary-blue: #4A90E2;
-    --primary-green: #7CB342;
+    --primary-blue: #0F6B5D; /* Acwad teal */
+    --primary-green: #2AA67A; /* accent green */
     --primary-orange: #FF9800;
     --primary-red: #E53935;
-    --dark-blue: #2C3E50;
+    --dark-blue: #163E36;
     --light-bg: #F5F7FA;
     --white: #FFFFFF;
     --text-dark: #333333;
@@ -34,18 +34,18 @@ body {
 }
 
 /* ===== Header ===== */
-.header {
-    background: var(--white);
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.hero {
+    position: relative;
+    height: 560px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(15,107,93,0.95) 0%, rgba(42,166,122,0.95) 100%);
 }
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.hero-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(15,107,93,0.9) 0%, rgba(42,166,122,0.6) 60%, rgba(245,247,250,0.0) 100%);
+}
     padding: 1rem 0;
 }
 
@@ -373,6 +373,33 @@ body {
     background: var(--primary-green);
     margin-top: -3px;
     transform: rotate(-3deg);
+}
+
+/* Course card teal style */
+.card-teal {
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(15,107,93,0.06), rgba(42,166,122,0.04));
+    padding: 22px;
+    box-shadow: var(--shadow);
+    text-align: right;
+}
+.card-teal .card-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15,107,93,0.12);
+    color: var(--primary-blue);
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 18px;
 }
 
 .graduation-cap {
@@ -758,6 +785,36 @@ body {
     .features-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ===== Brand / Logo Styles ===== */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--primary-blue);
+}
+.brand-logo {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+.site-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-right: 8px;
+}
+.footer .footer-logo .brand-logo,
+.footer-brand .brand-logo {
+    height: 40px;
+}
+.footer .footer-logo .site-name,
+.footer-brand .site-name {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-right: 8px;
 }
 
 @media (max-width: 480px) {

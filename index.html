@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduFarm - منصة التعلم الشاملة</title>
+    <title>Acwad Technology - منصة التعلم الشاملة</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -16,8 +16,10 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
-                    <i class="fas fa-book-open"></i>
-                    <span>EduFarm</span>
+                    <a href="index.html" class="brand">
+                        <img src="images/acwad-logo.svg" alt="Acwad Technology" class="brand-logo">
+                        <span class="site-name">Acwad Technology</span>
+                    </a>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html" class="active">الرئيسية</a></li>
@@ -74,45 +76,48 @@
     <!-- Main Cards Section -->
     <section class="main-cards" id="courses">
         <div class="container">
-            <div class="cards-grid">
-                <!-- Card 1: شرح المناهج -->
-                <div class="card card-blue">
-                    <div class="card-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3 class="card-title">شرح المناهج</h3>
-                    <p class="card-description">شروحات مفصلة لجميع المواد الدراسية مع أمثلة عملية</p>
-                    <a href="lessons.html" class="card-link">استكشف الآن <i class="fas fa-arrow-left"></i></a>
+            <h2 class="section-title">الدورات المتاحة</h2>
+            <div class="cards-grid courses-grid">
+                <div class="card card-teal">
+                    <div class="card-icon"><i class="fas fa-brain"></i></div>
+                    <h3 class="card-title">AI</h3>
+                    <p class="card-description">دورات تعليمية في الذكاء الاصطناعي والتعلم الآلي.</p>
+                    <a href="lessons.html" class="card-link">استكشف الدورة <i class="fas fa-arrow-left"></i></a>
                 </div>
 
-                <!-- Card 2: اختبارات -->
-                <div class="card card-orange">
-                    <div class="card-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h3 class="card-title">اختبارات</h3>
-                    <p class="card-description">اختبارات تفاعلية لتقييم مستواك ومتابعة تقدمك</p>
-                    <a href="tests.html" class="card-link">ابدأ الاختبار <i class="fas fa-arrow-left"></i></a>
+                <div class="card card-teal">
+                    <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="card-title">Cybersecurity</h3>
+                    <p class="card-description">حماية الأنظمة والشبكات وتعلّم أدوات الأمن السيبراني.</p>
+                    <a href="lessons.html" class="card-link">استكشف الدورة <i class="fas fa-arrow-left"></i></a>
                 </div>
 
-                <!-- Card 3: ملفات PDF -->
-                <div class="card card-green">
-                    <div class="card-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <h3 class="card-title">ملفات PDF</h3>
-                    <p class="card-description">مكتبة شاملة من الكتب والملخصات بصيغة PDF</p>
-                    <a href="pdfs.html" class="card-link">تصفح الملفات <i class="fas fa-arrow-left"></i></a>
+                <div class="card card-teal">
+                    <div class="card-icon"><i class="fas fa-globe"></i></div>
+                    <h3 class="card-title">Web</h3>
+                    <p class="card-description">أساسيات تطوير الويب وتصميم تجربة المستخدم.</p>
+                    <a href="lessons.html" class="card-link">استكشف الدورة <i class="fas fa-arrow-left"></i></a>
                 </div>
 
-                <!-- Card 4: فيديوهات تعليمية -->
-                <div class="card card-red">
-                    <div class="card-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h3 class="card-title">فيديوهات تعليمية</h3>
-                    <p class="card-description">مقاطع فيديو تعليمية عالية الجودة لكل المواد</p>
-                    <a href="videos.html" class="card-link">شاهد الآن <i class="fas fa-arrow-left"></i></a>
+                <div class="card card-teal">
+                    <div class="card-icon"><i class="fas fa-server"></i></div>
+                    <h3 class="card-title">Backend</h3>
+                    <p class="card-description">بناء الخدمات وقواعد البيانات وواجهات برمجة التطبيقات.</p>
+                    <a href="lessons.html" class="card-link">استكشف الدورة <i class="fas fa-arrow-left"></i></a>
+                </div>
+
+                <div class="card card-teal">
+                    <div class="card-icon"><i class="fas fa-code"></i></div>
+                    <h3 class="card-title">Frontend</h3>
+                    <p class="card-description">تطوير واجهات تفاعلية باستخدام أحدث المكتبات.</p>
+                    <a href="lessons.html" class="card-link">استكشف الدورة <i class="fas fa-arrow-left"></i></a>
+                </div>
+
+                <div class="card card-teal">
+                    <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="card-title">Flutter</h3>
+                    <p class="card-description">بناء تطبيقات متعددة المنصات باستخدام Flutter.</p>
+                    <a href="lessons.html" class="card-link">استكشف الدورة <i class="fas fa-arrow-left"></i></a>
                 </div>
             </div>
         </div>
@@ -235,10 +240,8 @@
                 <h2 class="section-title">عن الموقع</h2>
                 <div class="about-content"
                     style="text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-light);">
-                    <p>EduFarm هي منصة تعليمية رائدة تهدف إلى توفير محتوى تعليمي متميز للطلاب في جميع المراحل الدراسية.
-                        نسعى
-                        لتبسيط العلوم والمعرفة وجعلها في متناول الجميع من خلال استخدام أحدث التقنيات وأساليب الشرح
-                        المبتكرة.
+                    <p>Acwad Technology هي منصة تعليمية تهدف إلى توفير محتوى تقني متميز للمتعلمين والمهنيين.
+                        نعمل على تقديم دورات ومحتوى عملي يساعد المطورين والمهتمين بالتقنية على النمو المهني.
                     </p>
                     <div style="margin-top: 30px; display: flex; justify-content: center; gap: 30px;">
                         <div style="text-align: center;">
@@ -270,9 +273,9 @@
                             <i class="fas fa-envelope"
                                 style="color: var(--primary-blue); font-size: 1.5rem; margin-left: 10px;"></i>
                             <span style="font-weight: 600;">البريد الإلكتروني:</span>
-                            <p><a href="mailto:EduFarm@gmail.com"
-                                    style="text-decoration: none; color: var(--text-light);">EduFarm@gmail.com</a>
-                            </p>
+                                <p><a href="mailto:contact@acwadtech.com"
+                                    style="text-decoration: none; color: var(--text-light);">contact@acwadtech.com</a>
+                                </p>
                         </div>
                         <div style="margin-bottom: 25px;">
                             <i class="fas fa-phone"
@@ -308,8 +311,10 @@
                 <div class="footer-content">
                     <div class="footer-section">
                         <div class="footer-logo">
-                            <i class="fas fa-book-open"></i>
-                            <span>EduFarm</span>
+                            <a href="index.html" class="brand footer-brand">
+                                <img src="images/acwad-logo.svg" alt="Acwad Technology" class="brand-logo">
+                                <span class="site-name">Acwad Technology</span>
+                            </a>
                         </div>
                         <p>منصة تعليمية شاملة لجميع المواد الدراسية</p>
                     </div>
@@ -325,7 +330,7 @@
                     <div class="footer-section">
                         <h4>تواصل معنا</h4>
                         <ul>
-                            <li><i class="fas fa-envelope"></i> <a href="mailto:EduFarm@gmail.com">EduFarm@gmail.com</a>
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:contact@acwadtech.com">contact@acwadtech.com</a>
                             </li>
                             <li><i class="fas fa-phone"></i> <a href="tel:+201003023434">01003023434</a></li>
                             <li><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</li>
@@ -342,7 +347,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2024 EduFarm. جميع الحقوق محفوظة.</p>
+                    <p>&copy; 2025 Acwad Technology. جميع الحقوق محفوظة.</p>
                 </div>
             </div>
         </footer>
