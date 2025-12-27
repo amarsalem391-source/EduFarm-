@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Git Basics - Acwad Technology</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html" class="brand"><span class="site-name">Acwad Technology</span></a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="lessons.html#git" class="active">Git</a></li>
+                    <li><a href="lessons.html">الدروس</a></li>
+                    <li><a href="tests.html">الاختبارات</a></li>
+                    <li><a href="videos.html">الفيديوهات</a></li>
+                    <li><a href="login.html" class="btn-login">تسجيل الدخول</a></li>
+                </ul>
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 20px;">
+        <h1>مقدمة إلى Git</h1>
+        <p>Git هو نظام تحكم بالإصدارات يُستخدم لإدارة التغييرات في الشيفرة المصدرية. يساعدك Git على تتبع الإضافات، التعاون مع فريق، وإدارة إصدارات المشروع.</p>
+
+        <h2>لماذا Git؟</h2>
+        <ul>
+            <li>تتبع التاريخ (من يستطيع معرفة ماذا ومتى ولماذا).</li>
+            <li>العمل المتفرع (فروع لميزات جديدة بدون تعطيل الفرع الرئيسي).</li>
+            <li>التعاون (الاندماج، طلبات السحب، ومراجعات الشيفرة).</li>
+        </ul>
+
+        <h2>أوامر أساسية (Quick Start)</h2>
+        <p>افتح الطرفية ثم نفّذ الأوامر التالية داخل مجلد المشروع:</p>
+        <pre><code>git init
+git add .
+git commit -m "Initial commit"
+# ربط المستودع البعيد (مثال GitHub)
+git remote add origin https://github.com/username/repo.git
+git branch -M main
+git push -u origin main
+</code></pre>
+
+        <h2>العمل على فرع جديد</h2>
+        <pre><code>git checkout -b feature/new-ui
+# بعد العمل والتأكد
+git add .
+git commit -m "Add new UI"
+git push origin feature/new-ui
+</code></pre>
+
+        <h2>السحب والدمج (Pull & Merge)</h2>
+        <p>للحصول على آخر التحديثات من الفرع الرئيسي:</p>
+        <pre><code>git checkout main
+git pull origin main
+</code></pre>
+
+        <h2>حل التعارضات</h2>
+        <p>إذا ظهر تعارض عند الدمج، افتح الملفات المتعارضة، حررها، ثم:</p>
+        <pre><code>git add conflicted-file
+git commit -m "Resolve merge conflict"
+</code></pre>
+
+        <h2>نصائح سريعة</h2>
+        <ul>
+            <li>استخدم رسائل التزام واضحة ومختصرة.</li>
+            <li>اعمل على فروع صغيرة ومحددة الغرض.</li>
+            <li>اسحب التغييرات بانتظام لتقليل التعارضات.</li>
+        </ul>
+
+        <h2>مصادر إضافية</h2>
+        <ul>
+            <li><a href="https://git-scm.com/" target="_blank">الموقع الرسمي لـ Git</a></li>
+            <li><a href="https://docs.github.com/" target="_blank">توثيق GitHub</a></li>
+        </ul>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Acwad Technology. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
