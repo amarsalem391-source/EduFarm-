@@ -76,6 +76,36 @@ window.addEventListener('scroll', () => {
     });
 });
 
+// Set active nav link based on current URL (works for pages in subfolders)
+function setActiveNavLink(){
+    // get current path filename
+    const path = window.location.pathname.split('/').filter(Boolean).pop() || 'index.html';
+    // normalize possible index
+    const filename = path.toLowerCase();
+    document.querySelectorAll('.nav-menu a').forEach(a => {
+        // get href target filename (strip query/hash)
+        try{
+            const url = new URL(a.getAttribute('href'), window.location.origin);
+            const target = url.pathname.split('/').filter(Boolean).pop() || 'index.html';
+            if (target.toLowerCase() === filename) {
+                a.classList.add('active');
+            } else {
+                a.classList.remove('active');
+            }
+        }catch(e){
+            // fallback for anchors like #about
+            if (a.getAttribute('href') === window.location.hash) {
+                a.classList.add('active');
+            }
+        }
+    });
+}
+
+// Run on load
+document.addEventListener('DOMContentLoaded', () => {
+    setActiveNavLink();
+});
+
 // Helpers: slugify for generating a filename from title
 function slugify(text){
     return text.toString().toLowerCase()
