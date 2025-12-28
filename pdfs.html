@@ -126,150 +126,20 @@
                         <option value="geography">الجغرافيا</option>
                     </select>
                 </div>
-                <div class="filter-group">
-                    <label>الصف:</label>
-                    <select class="filter-select grade-select" id="gradeSelect">
-                        <option value="">جميع الصفوف</option>
-                        <option value="1">الصف الأول الابتدائي</option>
-                        <option value="2">الصف الثاني الابتدائي</option>
-                        <option value="3">الصف الثالث الابتدائي</option>
-                        <option value="4">الصف الرابع الابتدائي</option>
-                        <option value="5">الصف الخامس الابتدائي</option>
-                        <option value="6">الصف السادس الابتدائي</option>
-                        <option value="7">الصف الأول الإعدادي</option>
-                        <option value="8">الصف الثاني الإعدادي</option>
-                        <option value="9">الصف الثالث الإعدادي</option>
-                    </select>
-                </div>
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="ابحث عن درس...">
-                </div>
-            </div>
-
-            <!-- Lessons Grid -->
-            <div class="items-grid">
-                <!-- Lesson Card 1 -->
-                <div class="item-card" data-grade="2">
-                    <div class="item-icon" style="background: rgba(74, 144, 226, 0.1); color: var(--primary-blue);">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>الجبر والمعادلات</h3>
-                        <p class="item-meta">
-                            <span><i class="fas fa-book"></i> رياضيات</span>
-                            <span><i class="fas fa-layer-group"></i> الصف الثاني</span>
-                        </p>
-                        <p class="item-description">شرح مفصل للجبر والمعادلات من الدرجة الأولى والثانية مع أمثلة تطبيقية
-                        </p>
-                        <div class="item-stats">
-                            <span><i class="fas fa-clock"></i> 45 دقيقة</span>
-                            <span><i class="fas fa-user"></i> 250 طالب</span>
+                <div class="items-grid">
+                    <div class="item-card" data-course="programming">
+                        <div class="item-icon" style="background: rgba(15,107,93,0.08); color: var(--primary-blue);">
+                            <i class="fas fa-laptop-code"></i>
                         </div>
-                        <button class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></button>
-                    </div>
-                </div>
-
-                <!-- Lesson Card 2 -->
-                <div class="item-card" data-grade="3">
-                    <div class="item-icon" style="background: rgba(124, 179, 66, 0.1); color: var(--primary-green);">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>التفاعلات الكيميائية</h3>
-                        <p class="item-meta">
-                            <span><i class="fas fa-book"></i> العلوم</span>
-                            <span><i class="fas fa-layer-group"></i> الصف الثالث</span>
-                        </p>
-                        <p class="item-description">دراسة شاملة للتفاعلات الكيميائية وأنواعها مع تجارب عملية</p>
-                        <div class="item-stats">
-                            <span><i class="fas fa-clock"></i> 60 دقيقة</span>
-                            <span><i class="fas fa-user"></i> 180 طالب</span>
+                        <div class="item-content">
+                            <h3>كورسات برمجة — مواد قابلة للتحميل</h3>
+                            <p class="item-meta"><span><i class="fas fa-book"></i> برمجة</span></p>
+                            <p class="item-description">مجموعة ملفات ودروس قابلة للتحميل لتعلم البرمجة.</p>
+                            <div class="item-stats"><span><i class="fas fa-clock"></i> متاح</span><span><i class="fas fa-user"></i> متاح</span></div>
+                            <a href="#" class="btn-view btn-download"><i class="fas fa-download"></i> تحميل الموارد</a>
                         </div>
-                        <button class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></button>
                     </div>
                 </div>
-
-                <!-- Lesson Card 3 -->
-                <div class="item-card" data-grade="1">
-                    <div class="item-icon" style="background: rgba(255, 152, 0, 0.1); color: var(--primary-orange);">
-                        <i class="fas fa-font"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>النحو والصرف</h3>
-                        <p class="item-meta">
-                            <span><i class="fas fa-book"></i> اللغة العربية</span>
-                            <span><i class="fas fa-layer-group"></i> الصف الأول</span>
-                        </p>
-                        <p class="item-description">قواعد النحو والصرف مع أمثلة توضيحية وتدريبات عملية</p>
-                        <div class="item-stats">
-                            <span><i class="fas fa-clock"></i> 50 دقيقة</span>
-                            <span><i class="fas fa-user"></i> 320 طالب</span>
-                        </div>
-                        <button class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></button>
-                    </div>
-                </div>
-
-                <!-- Lesson Card 4 -->
-                <div class="item-card" data-grade="2">
-                    <div class="item-icon" style="background: rgba(229, 57, 53, 0.1); color: var(--primary-red);">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>English Grammar</h3>
-                        <p class="item-meta">
-                            <span><i class="fas fa-book"></i> اللغة الإنجليزية</span>
-                            <span><i class="fas fa-layer-group"></i> الصف الثاني</span>
-                        </p>
-                        <p class="item-description">قواعد اللغة الإنجليزية الأساسية مع تمارين تفاعلية</p>
-                        <div class="item-stats">
-                            <span><i class="fas fa-clock"></i> 40 دقيقة</span>
-                            <span><i class="fas fa-user"></i> 290 طالب</span>
-                        </div>
-                        <button class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></button>
-                    </div>
-                </div>
-
-                <!-- Lesson Card 5 -->
-                <div class="item-card" data-grade="1">
-                    <div class="item-icon" style="background: rgba(74, 144, 226, 0.1); color: var(--primary-blue);">
-                        <i class="fas fa-landmark"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>الحضارة المصرية القديمة</h3>
-                        <p class="item-meta">
-                            <span><i class="fas fa-book"></i> التاريخ</span>
-                            <span><i class="fas fa-layer-group"></i> الصف الأول</span>
-                        </p>
-                        <p class="item-description">رحلة في تاريخ مصر القديمة وحضارة الفراعنة</p>
-                        <div class="item-stats">
-                            <span><i class="fas fa-clock"></i> 55 دقيقة</span>
-                            <span><i class="fas fa-user"></i> 200 طالب</span>
-                        </div>
-                        <button class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></button>
-                    </div>
-                </div>
-
-                <!-- Lesson Card 6 -->
-                <div class="item-card" data-grade="3">
-                    <div class="item-icon" style="background: rgba(124, 179, 66, 0.1); color: var(--primary-green);">
-                        <i class="fas fa-globe-africa"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>الموارد الطبيعية</h3>
-                        <p class="item-meta">
-                            <span><i class="fas fa-book"></i> الجغرافيا</span>
-                            <span><i class="fas fa-layer-group"></i> الصف الثالث</span>
-                        </p>
-                        <p class="item-description">دراسة الموارد الطبيعية في مصر والعالم العربي</p>
-                        <div class="item-stats">
-                            <span><i class="fas fa-clock"></i> 45 دقيقة</span>
-                            <span><i class="fas fa-user"></i> 150 طالب</span>
-                        </div>
-                        <button class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></button>
-                    </div>
-                </div>
-            </div>
 
             <!-- Pagination -->
             <div class="pagination">

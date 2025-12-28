@@ -60,229 +60,30 @@
                 <div class="filter-group">
                     <label>الدورة:</label>
                     <select class="filter-select" id="courseSelect">
-                        <option value="">جميع الدورات</option>
-                        <option value="ai">AI</option>
-                        <option value="cyber">Cybersecurity</option>
-                        <option value="web">Web</option>
-                        <option value="backend">Backend</option>
-                        <option value="frontend">Frontend</option>
-                        <option value="flutter">Flutter</option>
-                        <option value="git">Git</option>
+                        <option value="programming">كورسات برمجة</option>
                     </select>
                 </div>
-                <div class="filter-group">
-                    <label>المستوى:</label>
-                    <select class="filter-select grade-select" id="levelSelect">
-                        <option value="">جميع المستويات</option>
-                        <option value="beginner">مبتدئ</option>
-                        <option value="intermediate">متوسط</option>
-                        <option value="advanced">متقدم</option>
-                    </select>
-                </div>
+                <!-- grade select removed per request -->
                 <div class="search-box">
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="ابحث عن درس...">
                 </div>
             </div>
 
-            <!-- Git intro -->
-            <div class="git-intro" style="background: rgba(15,107,93,0.06); padding: 16px; border-radius: 10px; margin: 18px 0;">
-                <h3 style="margin:0 0 8px 0; color: var(--primary-blue);">مقدمة سريعة عن Git</h3>
-                <p style="margin:0; color: var(--text-light);">Git نظام تحكم في الإصدارات يُستخدم لإدارة الشيفرة ومتابعة التغييرات. نوصي ببدء "Git Basics" قبل العمل على المشاريع. <a href="#git" style="color:var(--primary-blue); text-decoration:underline;">عرض دروس Git</a></p>
-            </div>
+            <!-- Git intro removed per request -->
 
-            <!-- Lessons Grid -->
+            <!-- Lessons Grid: only programming courses kept -->
             <div class="items-grid">
-                <!-- Programming Lesson Cards -->
-                <div class="item-card" data-course="ai" data-level="beginner">
+                <div class="item-card" data-course="programming">
                     <div class="item-icon" style="background: rgba(15,107,93,0.08); color: var(--primary-blue);">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-laptop-code"></i>
                     </div>
                     <div class="item-content">
-                        <h3>مقدمة في الذكاء الاصطناعي</h3>
-                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> AI</span><span><i class="fas fa-signal"></i> مبتدئ</span></p>
-                        <p class="item-description">أساسيات التعلم الآلي، الشبكات العصبية، ومشاريع بسيطة.</p>
-                        <div class="item-stats"><span><i class="fas fa-clock"></i> 80 دقيقة</span><span><i class="fas fa-user"></i> 1200 طالب</span></div>
-                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-
-                <div class="item-card" data-course="cyber" data-level="intermediate">
-                    <div class="item-icon" style="background: rgba(0,0,0,0.06); color: var(--primary-green);">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>أساسيات الأمن السيبراني</h3>
-                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> Cybersecurity</span><span><i class="fas fa-signal"></i> متوسط</span></p>
-                        <p class="item-description">مبادئ الحماية، الشبكات، وأنواع الهجمات وكيفية الوقاية.</p>
-                        <div class="item-stats"><span><i class="fas fa-clock"></i> 70 دقيقة</span><span><i class="fas fa-user"></i> 560 طالب</span></div>
-                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-
-                <div class="item-card" data-course="web" data-level="beginner">
-                    <div class="item-icon" style="background: rgba(42,166,122,0.08); color: var(--primary-blue);">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>تطوير الويب للمبتدئين</h3>
-                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> Web</span><span><i class="fas fa-signal"></i> مبتدئ</span></p>
-                        <p class="item-description">HTML, CSS, وJavaScript لبناء صفحات تفاعلية.</p>
-                        <div class="item-stats"><span><i class="fas fa-clock"></i> 60 دقيقة</span><span><i class="fas fa-user"></i> 900 طالب</span></div>
-                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-
-                <div class="item-card" data-course="backend" data-level="intermediate">
-                    <div class="item-icon" style="background: rgba(15,107,93,0.06); color: var(--dark-blue);">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>برمجة الخوادم وقواعد البيانات</h3>
-                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> Backend</span><span><i class="fas fa-signal"></i> متوسط</span></p>
-                        <p class="item-description">APIs، قواعد البيانات، وأساليب النشر.</p>
-                        <div class="item-stats"><span><i class="fas fa-clock"></i> 95 دقيقة</span><span><i class="fas fa-user"></i> 430 طالب</span></div>
-                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-
-                <div class="item-card" data-course="frontend" data-level="intermediate">
-                    <div class="item-icon" style="background: rgba(15,107,93,0.06); color: var(--primary-blue);">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>تطوير الواجهات الحديثة</h3>
-                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> Frontend</span><span><i class="fas fa-signal"></i> متوسط</span></p>
-                        <p class="item-description">مكتبات حديثة، أنماط تصميم، وتجربة المستخدم.</p>
-                        <div class="item-stats"><span><i class="fas fa-clock"></i> 75 دقيقة</span><span><i class="fas fa-user"></i> 610 طالب</span></div>
-                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-
-                <div class="item-card" data-course="flutter" data-level="beginner">
-                    <div class="item-icon" style="background: rgba(42,166,122,0.06); color: var(--primary-blue);">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>Flutter لتطوير التطبيقات</h3>
-                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> Flutter</span><span><i class="fas fa-signal"></i> مبتدئ</span></p>
-                        <p class="item-description">بناء تطبيقات متعددة المنصات باستخدام Flutter وDart.</p>
-                        <div class="item-stats"><span><i class="fas fa-clock"></i> 85 دقيقة</span><span><i class="fas fa-user"></i> 480 طالب</span></div>
-                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-
-                <!-- Git special card -->
-                <div class="item-card" id="git" data-course="git" data-level="beginner">
-                    <div class="item-icon" style="background: rgba(15,107,93,0.12); color: #fff;">
-                        <i class="fas fa-code-branch"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>Git Basics — تعرّف على Git</h3>
-                        <p class="item-meta"><span><i class="fas fa-laptop-code"></i> Git</span><span><i class="fas fa-signal"></i> مبتدئ</span></p>
-                        <p class="item-description">مقدمة عملية عن Git: إنشاء مستودع، الإضافات، الالتزامات، والفروع.</p>
-                        <div class="item-stats"><span><i class="fas fa-clock"></i> 40 دقيقة</span><span><i class="fas fa-user"></i> 1500 طالب</span></div>
-                        <a href="#" class="btn-view">ابدأ الآن <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-
-                <!-- Lesson Card 2 -->
-                <div class="item-card" data-grade="3">
-                    <div class="item-icon" style="background: rgba(124, 179, 66, 0.1); color: var(--primary-green);">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>التفاعلات الكيميائية</h3>
-                        <p class="item-meta">
-                            <span><i class="fas fa-book"></i> العلوم</span>
-                            <span><i class="fas fa-layer-group"></i> الصف الثالث</span>
-                        </p>
-                        <p class="item-description">دراسة شاملة للتفاعلات الكيميائية وأنواعها مع تجارب عملية</p>
-                        <div class="item-stats">
-                            <span><i class="fas fa-clock"></i> 60 دقيقة</span>
-                            <span><i class="fas fa-user"></i> 180 طالب</span>
-                        </div>
-                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-
-                <!-- Lesson Card 3 -->
-                <div class="item-card" data-grade="1">
-                    <div class="item-icon" style="background: rgba(255, 152, 0, 0.1); color: var(--primary-orange);">
-                        <i class="fas fa-font"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>النحو والصرف</h3>
-                        <p class="item-meta">
-                            <span><i class="fas fa-book"></i> اللغة العربية</span>
-                            <span><i class="fas fa-layer-group"></i> الصف الأول</span>
-                        </p>
-                        <p class="item-description">قواعد النحو والصرف مع أمثلة توضيحية وتدريبات عملية</p>
-                        <div class="item-stats">
-                            <span><i class="fas fa-clock"></i> 50 دقيقة</span>
-                            <span><i class="fas fa-user"></i> 320 طالب</span>
-                        </div>
-                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-
-                <!-- Lesson Card 4 -->
-                <div class="item-card" data-grade="2">
-                    <div class="item-icon" style="background: rgba(229, 57, 53, 0.1); color: var(--primary-red);">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>English Grammar</h3>
-                        <p class="item-meta">
-                            <span><i class="fas fa-book"></i> اللغة الإنجليزية</span>
-                            <span><i class="fas fa-layer-group"></i> الصف الثاني</span>
-                        </p>
-                        <p class="item-description">قواعد اللغة الإنجليزية الأساسية مع تمارين تفاعلية</p>
-                        <div class="item-stats">
-                            <span><i class="fas fa-clock"></i> 40 دقيقة</span>
-                            <span><i class="fas fa-user"></i> 290 طالب</span>
-                        </div>
-                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-
-                <!-- Lesson Card 5 -->
-                <div class="item-card" data-grade="1">
-                    <div class="item-icon" style="background: rgba(74, 144, 226, 0.1); color: var(--primary-blue);">
-                        <i class="fas fa-landmark"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>الحضارة المصرية القديمة</h3>
-                        <p class="item-meta">
-                            <span><i class="fas fa-book"></i> التاريخ</span>
-                            <span><i class="fas fa-layer-group"></i> الصف الأول</span>
-                        </p>
-                        <p class="item-description">رحلة في تاريخ مصر القديمة وحضارة الفراعنة</p>
-                        <div class="item-stats">
-                            <span><i class="fas fa-clock"></i> 55 دقيقة</span>
-                            <span><i class="fas fa-user"></i> 200 طالب</span>
-                        </div>
-                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-
-                <!-- Lesson Card 6 -->
-                <div class="item-card" data-grade="3">
-                    <div class="item-icon" style="background: rgba(124, 179, 66, 0.1); color: var(--primary-green);">
-                        <i class="fas fa-globe-africa"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3>الموارد الطبيعية</h3>
-                        <p class="item-meta">
-                            <span><i class="fas fa-book"></i> الجغرافيا</span>
-                            <span><i class="fas fa-layer-group"></i> الصف الثالث</span>
-                        </p>
-                        <p class="item-description">دراسة الموارد الطبيعية في مصر والعالم العربي</p>
-                        <div class="item-stats">
-                            <span><i class="fas fa-clock"></i> 45 دقيقة</span>
-                            <span><i class="fas fa-user"></i> 150 طالب</span>
-                        </div>
-                        <a href="#" class="btn-view">عرض الدرس <i class="fas fa-arrow-left"></i></a>
+                        <h3>كورسات برمجة</h3>
+                        <p class="item-meta"><span><i class="fas fa-book"></i> برمجة</span></p>
+                        <p class="item-description">سلسلة دورات عملية في البرمجة: أساسيات، واجهات، خوادم، وقواعد بيانات.</p>
+                        <div class="item-stats"><span><i class="fas fa-clock"></i> متاح</span><span><i class="fas fa-user"></i> متاح</span></div>
+                        <a href="#" class="btn-view">عرض الدورة <i class="fas fa-arrow-left"></i></a>
                     </div>
                 </div>
             </div>

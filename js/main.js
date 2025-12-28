@@ -186,31 +186,7 @@ document.querySelectorAll('.page-btn').forEach(btn => {
     });
 });
 
-// Grade filtering: show/hide .item-card by data-grade attribute
-function filterByGrade(value){
-    const cards = document.querySelectorAll('.item-card');
-    cards.forEach(card => {
-        const g = card.dataset.grade;
-        if (!value || value === '') {
-            card.style.display = '';
-        } else {
-            if (g === value) card.style.display = '';
-            else card.style.display = 'none';
-        }
-    });
-}
-
-document.querySelectorAll('.grade-select').forEach(select => {
-    select.addEventListener('change', (e) => {
-        filterByGrade(e.target.value);
-    });
-});
-
-// If there's an initial selection, apply it on load
-document.addEventListener('DOMContentLoaded', () => {
-    const sel = document.querySelector('.grade-select');
-    if (sel && sel.value) filterByGrade(sel.value);
-});
+// Grade filtering removed per updated site requirements
 
 // Theme toggle: persist user preference
 function applyTheme(theme) {
