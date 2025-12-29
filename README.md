@@ -1,4 +1,4 @@
-# 🎓 EduFarm - منصة التعلم الشاملة
+# 🎓 acwad technology - منصة التعلم الشاملة
 
 ![EduFarm](https://img.shields.io/badge/EduFarm-Educational%20Platform-4A90E2)
 ![Version](https://img.shields.io/badge/version-1.0.0-7CB342)

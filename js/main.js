@@ -116,7 +116,7 @@ function slugify(text){
         .replace(/-+$/, '');            // Trim - from end
 }
 
-// Modal and view button handlers
+// Modal and view button handlers (guarded)
 const modal = document.getElementById('itemModal');
 const modalTitle = document.getElementById('modalTitle');
 const modalMeta = document.getElementById('modalMeta');
@@ -125,24 +125,61 @@ const modalDownload = document.getElementById('modalDownload');
 
 // Delegated click handler for buttons (works for dynamically added buttons too)
 document.addEventListener('click', (e) => {
-    const btn = e.target.closest && e.target.closest('.btn-view');
-    if (btn) {
+    // View modal
+    const btnView = e.target.closest && e.target.closest('.btn-view');
+    if (btnView) {
         e.preventDefault();
-        const card = btn.closest('.item-card');
+        const card = btnView.closest('.item-card');
         if (!card) return;
         const title = card.querySelector('h3')?.innerText || '';
         const desc = card.querySelector('.item-description')?.innerText || '';
         const metaSpans = card.querySelectorAll('.item-meta span');
         const subject = metaSpans[0]?.innerText || '';
         const grade = metaSpans[1]?.innerText || '';
-        modalTitle.innerText = title;
-        modalMeta.innerText = `${subject} • ${grade}`;
-        modalDesc.innerText = desc;
+        if (modal && modalTitle && modalMeta && modalDesc && modalDownload) {
+            modalTitle.innerText = title;
+            modalMeta.innerText = subject ? `${subject}${grade ? ' • ' + grade : ''}` : (grade || '');
+            modalDesc.innerText = desc;
+            const pdfLink = `pdfs/${slugify(title)}.pdf`;
+            modalDownload.href = pdfLink;
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        } else {
+            // fallback: navigate to lessons page
+            window.location.href = 'lessons.html';
+        }
+        return;
+    }
+
+    // Watch button (videos)
+    const btnWatch = e.target.closest && e.target.closest('.btn-watch');
+    if (btnWatch) {
+        e.preventDefault();
+        const card = btnWatch.closest('.item-card');
+        const title = card?.querySelector('h3')?.innerText || 'كورسات برمجة';
+        // open videos page or show modal if available
+        if (window.location.pathname.endsWith('videos.html')) {
+            // already on videos page — optionally scroll to card
+            card?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+            window.location.href = 'videos.html';
+        }
+        return;
+    }
+
+    // Download button (may be anchor or button)
+    const btnDownload = e.target.closest && e.target.closest('.btn-download');
+    if (btnDownload) {
+        // if it's an anchor with href, let it act normally
+        const anchor = btnDownload.closest('a');
+        if (anchor && anchor.getAttribute('href')) return;
+        e.preventDefault();
+        const card = btnDownload.closest('.item-card');
+        const title = card?.querySelector('h3')?.innerText || '';
         const pdfLink = `pdfs/${slugify(title)}.pdf`;
-        modalDownload.href = pdfLink;
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+        // trigger navigation/download
+        window.location.href = pdfLink;
         return;
     }
 
@@ -157,10 +194,11 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Close modal handlers
+// Close modal handlers (guarded)
 document.querySelectorAll('.modal-close, #modalCloseBtn').forEach(el => {
     if (!el) return;
     el.addEventListener('click', () => {
+        if (!modal) return;
         modal.classList.remove('open');
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';

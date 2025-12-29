@@ -1,0 +1,306 @@
+[1mdiff --git a/git.html b/git.html[m
+[1mdeleted file mode 100644[m
+[1mindex 62e9364..0000000[m
+[1m--- a/git.html[m
+[1m+++ /dev/null[m
+[36m@@ -1,98 +0,0 @@[m
+[31m-<!DOCTYPE html>[m
+[31m-<html lang="ar" dir="rtl">[m
+[31m-[m
+[31m-<head>[m
+[31m-    <meta charset="utf-8">[m
+[31m-    <meta name="viewport" content="width=device-width, initial-scale=1">[m
+[31m-    <title>Git Basics - Acwad Technology</title>[m
+[31m-    <link rel="stylesheet" href="css/style.css">[m
+[31m-</head>[m
+[31m-[m
+[31m-<body>[m
+[31m-    <header class="header">[m
+[31m-        <div class="container">[m
+[31m-            <nav class="navbar">[m
+[31m-                <div class="logo">[m
+[31m-                    <a href="index.html" class="brand"><span class="site-name">Acwad Technology</span></a>[m
+[31m-                </div>[m
+[31m-                <ul class="nav-menu">[m
+[31m-                    <li><a href="index.html">الرئيسية</a></li>[m
+[31m-                    <li><a href="lessons.html">الدروس</a></li>[m
+[31m-                    <!-- Git page — no top-nav link shown -->[m
+[31m-                    <li><a href="tests.html">الاختبارات</a></li>[m
+[31m-                    <li><a href="pdfs.html">ملفات PDF</a></li>[m
+[31m-                    <li><a href="videos.html">الفيديوهات</a></li>[m
+[31m-                    <li><a href="login.html" class="btn-login">تسجيل الدخول</a></li>[m
+[31m-                </ul>[m
+[31m-                <div class="hamburger"><span></span><span></span><span></span></div>[m
+[31m-            </nav>[m
+[31m-        </div>[m
+[31m-    </header>[m
+[31m-[m
+[31m-    <main class="container" style="padding: 40px 20px;">[m
+[31m-        <h1>مقدمة إلى Git</h1>[m
+[31m-        <p>Git هو نظام تحكم بالإصدارات يُستخدم لإدارة التغييرات في الشيفرة المصدرية. يساعدك Git على تتبع الإضافات، التعاون مع فريق، وإدارة إصدارات المشروع.</p>[m
+[31m-[m
+[31m-        <h2>لماذا Git؟</h2>[m
+[31m-        <ul>[m
+[31m-            <li>تتبع التاريخ (من يستطيع معرفة ماذا ومتى ولماذا).</li>[m
+[31m-            <li>العمل المتفرع (فروع لميزات جديدة بدون تعطيل الفرع الرئيسي).</li>[m
+[31m-            <li>التعاون (الاندماج، طلبات السحب، ومراجعات الشيفرة).</li>[m
+[31m-        </ul>[m
+[31m-[m
+[31m-        <h2>أوامر أساسية (Quick Start)</h2>[m
+[31m-        <p>افتح الطرفية ثم نفّذ الأوامر التالية داخل مجلد المشروع:</p>[m
+[31m-        <pre><code>git init[m
+[31m-git add .[m
+[31m-git commit -m "Initial commit"[m
+[31m-# ربط المستودع البعيد (مثال GitHub)[m
+[31m-git remote add origin https://github.com/username/repo.git[m
+[31m-git branch -M main[m
+[31m-git push -u origin main[m
+[31m-</code></pre>[m
+[31m-[m
+[31m-        <h2>العمل على فرع جديد</h2>[m
+[31m-        <pre><code>git checkout -b feature/new-ui[m
+[31m-# بعد العمل والتأكد[m
+[31m-git add .[m
+[31m-git commit -m "Add new UI"[m
+[31m-git push origin feature/new-ui[m
+[31m-</code></pre>[m
+[31m-[m
+[31m-        <h2>السحب والدمج (Pull & Merge)</h2>[m
+[31m-        <p>للحصول على آخر التحديثات من الفرع الرئيسي:</p>[m
+[31m-        <pre><code>git checkout main[m
+[31m-git pull origin main[m
+[31m-</code></pre>[m
+[31m-[m
+[31m-        <h2>حل التعارضات</h2>[m
+[31m-        <p>إذا ظهر تعارض عند الدمج، افتح الملفات المتعارضة، حررها، ثم:</p>[m
+[31m-        <pre><code>git add conflicted-file[m
+[31m-git commit -m "Resolve merge conflict"[m
+[31m-</code></pre>[m
+[31m-[m
+[31m-        <h2>نصائح سريعة</h2>[m
+[31m-        <ul>[m
+[31m-            <li>استخدم رسائل التزام واضحة ومختصرة.</li>[m
+[31m-            <li>اعمل على فروع صغيرة ومحددة الغرض.</li>[m
+[31m-            <li>اسحب التغييرات بانتظام لتقليل التعارضات.</li>[m
+[31m-        </ul>[m
+[31m-[m
+[31m-        <h2>مصادر إضافية</h2>[m
+[31m-        <ul>[m
+[31m-            <li><a href="https://git-scm.com/" target="_blank">الموقع الرسمي لـ Git</a></li>[m
+[31m-            <li><a href="https://docs.github.com/" target="_blank">توثيق GitHub</a></li>[m
+[31m-        </ul>[m
+[31m-[m
+[31m-    </main>[m
+[31m-[m
+[31m-    <footer class="footer">[m
+[31m-        <div class="container">[m
+[31m-            <div class="footer-bottom">[m
+[31m-                <p>&copy; 2025 Acwad Technology. جميع الحقوق محفوظة.</p>[m
+[31m-            </div>[m
+[31m-        </div>[m
+[31m-    </footer>[m
+[31m-</body>[m
+[31m-[m
+[31m-</html>[m
+[1mdiff --git a/index.html b/index.html[m
+[1mindex f2c5388..033dd8b 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -18,6 +18,8 @@[m
+                 <div class="logo">[m
+                     <a href="index.html" class="brand">[m
+                         <img src="images/acwad-logo.svg" alt="Acwad Technology" class="brand-logo">[m
+[32m+[m[41m     [m
+[32m+[m[41m     [m
+                         <span class="site-name">Acwad Technology</span>[m
+                     </a>[m
+                 </div>[m
+[1mdiff --git a/js/main.js b/js/main.js[m
+[1mindex 3793324..3f88319 100644[m
+[1m--- a/js/main.js[m
+[1m+++ b/js/main.js[m
+[36m@@ -116,7 +116,7 @@[m [mfunction slugify(text){[m
+         .replace(/-+$/, '');            // Trim - from end[m
+ }[m
+ [m
+[31m-// Modal and view button handlers[m
+[32m+[m[32m// Modal and view button handlers (guarded)[m
+ const modal = document.getElementById('itemModal');[m
+ const modalTitle = document.getElementById('modalTitle');[m
+ const modalMeta = document.getElementById('modalMeta');[m
+[36m@@ -125,24 +125,61 @@[m [mconst modalDownload = document.getElementById('modalDownload');[m
+ [m
+ // Delegated click handler for buttons (works for dynamically added buttons too)[m
+ document.addEventListener('click', (e) => {[m
+[31m-    const btn = e.target.closest && e.target.closest('.btn-view');[m
+[31m-    if (btn) {[m
+[32m+[m[32m    // View modal[m
+[32m+[m[32m    const btnView = e.target.closest && e.target.closest('.btn-view');[m
+[32m+[m[32m    if (btnView) {[m
+         e.preventDefault();[m
+[31m-        const card = btn.closest('.item-card');[m
+[32m+[m[32m        const card = btnView.closest('.item-card');[m
+         if (!card) return;[m
+         const title = card.querySelector('h3')?.innerText || '';[m
+         const desc = card.querySelector('.item-description')?.innerText || '';[m
+         const metaSpans = card.querySelectorAll('.item-meta span');[m
+         const subject = metaSpans[0]?.innerText || '';[m
+         const grade = metaSpans[1]?.innerText || '';[m
+[31m-        modalTitle.innerText = title;[m
+[31m-        modalMeta.innerText = `${subject} • ${grade}`;[m
+[31m-        modalDesc.innerText = desc;[m
+[32m+[m[32m        if (modal && modalTitle && modalMeta && modalDesc && modalDownload) {[m
+[32m+[m[32m            modalTitle.innerText = title;[m
+[32m+[m[32m            modalMeta.innerText = subject ? `${subject}${grade ? ' • ' + grade : ''}` : (grade || '');[m
+[32m+[m[32m            modalDesc.innerText = desc;[m
+[32m+[m[32m            const pdfLink = `pdfs/${slugify(title)}.pdf`;[m
+[32m+[m[32m            modalDownload.href = pdfLink;[m
+[32m+[m[32m            modal.classList.add('open');[m
+[32m+[m[32m            modal.setAttribute('aria-hidden', 'false');[m
+[32m+[m[32m            document.body.style.overflow = 'hidden';[m
+[32m+[m[32m        } else {[m
+[32m+[m[32m            // fallback: navigate to lessons page[m
+[32m+[m[32m            window.location.href = 'lessons.html';[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    // Watch button (videos)[m
+[32m+[m[32m    const btnWatch = e.target.closest && e.target.closest('.btn-watch');[m
+[32m+[m[32m    if (btnWatch) {[m
+[32m+[m[32m        e.preventDefault();[m
+[32m+[m[32m        const card = btnWatch.closest('.item-card');[m
+[32m+[m[32m        const title = card?.querySelector('h3')?.innerText || 'كورسات برمجة';[m
+[32m+[m[32m        // open videos page or show modal if available[m
+[32m+[m[32m        if (window.location.pathname.endsWith('videos.html')) {[m
+[32m+[m[32m            // already on videos page — optionally scroll to card[m
+[32m+[m[32m            card?.scrollIntoView({ behavior: 'smooth', block: 'center' });[m
+[32m+[m[32m        } else {[m
+[32m+[m[32m            window.location.href = 'videos.html';[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    // Download button (may be anchor or button)[m
+[32m+[m[32m    const btnDownload = e.target.closest && e.target.closest('.btn-download');[m
+[32m+[m[32m    if (btnDownload) {[m
+[32m+[m[32m        // if it's an anchor with href, let it act normally[m
+[32m+[m[32m        const anchor = btnDownload.closest('a');[m
+[32m+[m[32m        if (anchor && anchor.getAttribute('href')) return;[m
+[32m+[m[32m        e.preventDefault();[m
+[32m+[m[32m        const card = btnDownload.closest('.item-card');[m
+[32m+[m[32m        const title = card?.querySelector('h3')?.innerText || '';[m
+         const pdfLink = `pdfs/${slugify(title)}.pdf`;[m
+[31m-        modalDownload.href = pdfLink;[m
+[31m-        modal.classList.add('open');[m
+[31m-        modal.setAttribute('aria-hidden', 'false');[m
+[31m-        document.body.style.overflow = 'hidden';[m
+[32m+[m[32m        // trigger navigation/download[m
+[32m+[m[32m        window.location.href = pdfLink;[m
+         return;[m
+     }[m
+ [m
+[36m@@ -157,10 +194,11 @@[m [mdocument.addEventListener('click', (e) => {[m
+     }[m
+ });[m
+ [m
+[31m-// Close modal handlers[m
+[32m+[m[32m// Close modal handlers (guarded)[m
+ document.querySelectorAll('.modal-close, #modalCloseBtn').forEach(el => {[m
+     if (!el) return;[m
+     el.addEventListener('click', () => {[m
+[32m+[m[32m        if (!modal) return;[m
+         modal.classList.remove('open');[m
+         modal.setAttribute('aria-hidden', 'true');[m
+         document.body.style.overflow = '';[m
+[1mdiff --git a/pdfs.html b/pdfs.html[m
+[1mindex f7755f6..eee73b3 100644[m
+[1m--- a/pdfs.html[m
+[1m+++ b/pdfs.html[m
+[36m@@ -117,13 +117,7 @@[m
+                 <div class="filter-group">[m
+                     <label>المادة:</label>[m
+                     <select class="filter-select">[m
+[31m-                        <option value="">جميع المواد</option>[m
+[31m-                        <option value="math">الرياضيات</option>[m
+[31m-                        <option value="science">العلوم</option>[m
+[31m-                        <option value="arabic">اللغة العربية</option>[m
+[31m-                        <option value="english">اللغة الإنجليزية</option>[m
+[31m-                        <option value="history">التاريخ</option>[m
+[31m-                        <option value="geography">الجغرافيا</option>[m
+[32m+[m[32m                        <option value="programming">كورسات برمجة</option>[m
+                     </select>[m
+                 </div>[m
+                 <div class="items-grid">[m
+[1mdiff --git a/tests.html b/tests.html[m
+[1mindex 1b9284c..cb97baf 100644[m
+[1m--- a/tests.html[m
+[1m+++ b/tests.html[m
+[36m@@ -86,22 +86,6 @@[m
+                     </div>[m
+                 </div>[m
+             </div>[m
+[31m-                    <div class="item-content">[m
+[31m-                        <h3>اختبار الموارد الطبيعية</h3>[m
+[31m-                        <p class="item-meta">[m
+[31m-                            <span><i class="fas fa-book"></i> الجغرافيا</span>[m
+[31m-                            <span><i class="fas fa-layer-group"></i> الصف الثالث</span>[m
+[31m-                        </p>[m
+[31m-                        <p class="item-description">اختبار في الموارد الطبيعية في مصر والوطن العربي</p>[m
+[31m-                        <div class="item-stats">[m
+[31m-                            <span><i class="fas fa-clock"></i> 30 دقيقة</span>[m
+[31m-                            <span><i class="fas fa-question-circle"></i> 18 سؤال</span>[m
+[31m-                            <span><i class="fas fa-user"></i> 250 طالب</span>[m
+[31m-                        </div>[m
+[31m-                        <a href="#" class="btn-view">ابدأ الاختبار <i class="fas fa-arrow-left"></i></a>[m
+[31m-                    </div>[m
+[31m-                </div>[m
+[31m-            </div>[m
+ [m
+             <!-- Pagination -->[m
+             <div class="pagination">[m
+[1mdiff --git a/user/dashboard.html b/user/dashboard.html[m
+[1mindex 73a7965..471e488 100644[m
+[1m--- a/user/dashboard.html[m
+[1m+++ b/user/dashboard.html[m
+[36m@@ -148,54 +148,54 @@[m
+                         <a href="my-lessons.html" class="view-all">عرض الكل</a>[m
+                     </div>[m
+                     <div class="lessons-grid">[m
+[31m-                        <div class="lesson-card">[m
+[32m+[m[32m                        <div class="lesson-card" data-course="programming">[m
+                             <div class="lesson-thumbnail blue">[m
+[31m-                                <i class="fas fa-calculator"></i>[m
+[32m+[m[32m                                <i class="fas fa-laptop-code"></i>[m
+                             </div>[m
+                             <div class="lesson-info">[m
+[31m-                                <h3>الجبر والمعادلات</h3>[m
+[31m-                                <p><i class="fas fa-book"></i> رياضيات</p>[m
+[32m+[m[32m                                <h3>مقدمة في البرمجة</h3>[m
+[32m+[m[32m                                <p><i class="fas fa-book"></i> برمجة</p>[m
+                                 <div class="lesson-progress">[m
+                                     <div class="progress-bar">[m
+[31m-                                        <div class="progress-fill" style="width: 65%"></div>[m
+[32m+[m[32m                                        <div class="progress-fill" style="width: 30%"></div>[m
+                                     </div>[m
+[31m-                                    <span>65%</span>[m
+[32m+[m[32m                                    <span>30%</span>[m
+                                 </div>[m
+[31m-                                <a href="#" class="btn-continue">متابعة التعلم</a>[m
+[32m+[m[32m                                <a href="my-lessons.html" class="btn-continue">متابعة التعلم</a>[m
+                             </div>[m
+                         </div>[m
+ [m
+[31m-                        <div class="lesson-card">[m
+[32m+[m[32m                        <div class="lesson-card" data-course="programming">[m
+                             <div class="lesson-thumbnail green">[m
+[31m-                                <i class="fas fa-flask"></i>[m
+[32m+[m[32m                                <i class="fas fa-code"></i>[m
+                             </div>[m
+                             <div class="lesson-info">[m
+[31m-                                <h3>التفاعلات الكيميائية</h3>[m
+[31m-                                <p><i class="fas fa-book"></i> العلوم</p>[m
+[32m+[m[32m                                <h3>HTML & CSS</h3>[m
+[32m+[m[32m                                <p><i class="fas fa-book"></i> برمجة</p>[m
+                                 <div class="lesson-progress">[m
+                                     <div class="progress-bar">
