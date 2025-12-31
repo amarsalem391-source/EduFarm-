@@ -895,3 +895,28 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* Category chooser modal for explore button */
+.category-modal-backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2200;
+}
+.category-modal-backdrop.open{ display:flex; }
+.category-modal{
+    background: var(--white);
+    border-radius: 12px;
+    width: 420px;
+    max-width: calc(100vw - 40px);
+    box-shadow: var(--shadow-lg);
+    padding: 18px;
+}
+.category-modal h3{ margin:0 0 10px 0; color:var(--dark-blue); }
+.category-list{ display:grid; grid-template-columns: repeat(2,1fr); gap:10px; }
+.category-btn{ padding:12px 10px; border-radius:10px; border:0; background: linear-gradient(90deg,var(--primary-blue),var(--primary-green)); color:#fff; cursor:pointer; font-weight:700; }
+.category-btn.secondary{ background: #f0f0f0; color:var(--dark-blue); }
+.category-modal .close-x{ position:absolute; right:14px; top:12px; background:transparent; border:0; font-size:20px; cursor:pointer; color:#333 }

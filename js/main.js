@@ -104,7 +104,93 @@ function setActiveNavLink(){
 // Run on load
 document.addEventListener('DOMContentLoaded', () => {
     setActiveNavLink();
+    // attach explore courses handler (category chooser)
+    const exploreBtn = document.getElementById('exploreCoursesBtn');
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', (e) => {
+            // show chooser modal instead of navigating immediately
+            e.preventDefault();
+            showCategoryChooser();
+        });
+    }
+    // if on lessons page, handle ?category= param
+    try {
+        const path = window.location.pathname.split('/').filter(Boolean).pop() || '';
+        if (path.toLowerCase().endsWith('lessons.html') || path === 'lessons.html' || path === 'lessons'){
+            const params = new URLSearchParams(window.location.search);
+            const cat = params.get('category');
+            if (cat) handleLessonsCategory(cat);
+        }
+    } catch (e) { /* ignore */ }
 });
+
+// Category chooser implementation
+function showCategoryChooser(){
+    if (document.querySelector('.category-modal-backdrop')){
+        document.querySelector('.category-modal-backdrop').classList.add('open');
+        return;
+    }
+    const backdrop = document.createElement('div');
+    backdrop.className = 'category-modal-backdrop';
+    backdrop.innerHTML = `
+        <div class="category-modal" role="dialog" aria-label="اختر القسم">
+            <button class="close-x" aria-label="إغلاق">&times;</button>
+            <h3>اختر القسم</h3>
+            <div class="category-list">
+                <button class="category-btn" data-cat="ai">AI</button>
+                <button class="category-btn" data-cat="cybersecurity">Cybersecurity</button>
+                <button class="category-btn" data-cat="backend">Backend Developer</button>
+                <button class="category-btn" data-cat="flutter">Flutter</button>
+                <button class="category-btn" data-cat="web">Web</button>
+                <button class="category-btn" data-cat="frontend">Frontend</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(backdrop);
+
+    backdrop.addEventListener('click', (ev) => {
+        if (ev.target === backdrop) backdrop.classList.remove('open');
+    });
+    backdrop.querySelector('.close-x').addEventListener('click', () => backdrop.classList.remove('open'));
+    backdrop.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const cat = btn.getAttribute('data-cat');
+            // navigate to lessons with query param
+            window.location.href = `lessons.html?category=${encodeURIComponent(cat)}`;
+        });
+    });
+    backdrop.classList.add('open');
+}
+
+function handleLessonsCategory(cat){
+    // map param code to display name
+    const map = {
+        ai: 'AI',
+        cybersecurity: 'Cybersecurity',
+        backend: 'Backend Developer',
+        flutter: 'Flutter',
+        web: 'Web',
+        frontend: 'Frontend'
+    };
+    const display = map[cat] || cat;
+    // insert a small banner at top of content-section
+    const container = document.querySelector('.content-section .container');
+    if (!container) return;
+    const banner = document.createElement('div');
+    banner.style.margin = '10px 0 18px';
+    banner.style.padding = '12px 16px';
+    banner.style.borderRadius = '10px';
+    banner.style.background = 'linear-gradient(90deg, rgba(15,107,93,0.06), rgba(42,166,122,0.04))';
+    banner.innerHTML = `<strong>عرض الكورسات:</strong> ${display}`;
+    container.insertBefore(banner, container.firstChild);
+    // try to set select if present
+    const sel = document.getElementById('courseSelect');
+    if (sel){
+        // if category is programming-related, keep programming option
+        // else leave as is but we set a data attribute showing subcategory
+        sel.value = 'programming';
+    }
+}
 
 // Helpers: slugify for generating a filename from title
 function slugify(text){
