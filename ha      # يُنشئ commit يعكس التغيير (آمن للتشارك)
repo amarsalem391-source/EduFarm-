@@ -1,0 +1,43 @@
+* [33mbbc9ec3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Initial commit
+* [33m775df18[m Initial commit
+* [33ma506ea7[m Initial commit
+* [33m24697d5[m[33m ([m[1;32mfeature/new[m[33m)[m رسالة التزام مختصرة وواضحة
+* [33mc66cc8c[m Initial commit
+* [33mff617eb[m Fix: clean top-bar, remove merge markers, responsive header styles
+*   [33m7fbfdb8[m[33m ([m[1;31morigin/feature/new-ui[m[33m, [m[1;32mfeature/new-ui[m[33m)[m Initial commit
+[32m|[m[33m\[m  
+[32m|[m * [33m06abcbf[m[33m ([m[1;31morigin/feature/my-feature[m[33m, [m[1;32mfeature/my-feature[m[33m, [m[1;32mfeature/add-git-tutorial[m[33m)[m رسالة واضحة عن التغيير
+* [33m|[m [33mafdf3b1[m شرح قصير للتغيير
+[33m|[m[33m/[m  
+* [33mdca0ad0[m Videos: convert to programming courses, add Git video, update footer
+* [33m1ea5888[m Brand: add Acwad logo, update theme and courses; add dark mode toggle
+* [33mfbf8906[m Brand: add Acwad logo, update theme and courses
+* [33m6fae309[m Update contact info globally: EduFarm@gmail.com, 01003023434
+* [33m645f5d7[m Update pricing to offer 4-day free trial
+* [33m26be181[m Add First Grade Primary content (Arabic, Math, English) with kid-friendly UI
+* [33m0a712fe[m Add payment modal with Visa, Vodafone, Instapay options in index.html
+* [33m9551949[m Activate View Lesson and Start Test buttons with mock pages
+* [33mb056137[m Remove registration chart HTML structure
+* [33mc963889[m Remove monthly registration statistics chart
+* [33mbd9d385[m Add Vodafone Cash and Instapay withdrawal methods with modal
+* [33m935e4a3[m Add sidebar overlay CSS for mobile dashboard
+* [33mf56b895[m Refine mobile dashboard with sidebar overlay and better layout
+* [33m7274043[m Activate social login buttons with simulated flow
+* [33m9bfbf4e[m Improve mobile responsiveness for tables and modals
+* [33m935c073[m Activate Export Data button with CSV download
+* [33mb6b5d13[m Activate All Admin Add Buttons with Modals
+* [33m0c7ac5e[m Update settings sidebar with Quick Links
+* [33m8d077da[m Add Quick Links section to user sidebar
+* [33m6518f56[m Activate Add Student button with modal
+* [33m731d4ed[m Restyle admin sidebar links as icon buttons
+* [33mbef3193[m Update admin sidebar with Earnings link
+* [33m0d604e5[m Initialize SQLite DB and add Earnings & Withdrawals
+* [33ma04a322[m Add subscription pricing section
+* [33m4820e2e[m Add About Us and Contact Us sections
+* [33m0268d69[m Activate sidebar links and add new user pages
+* [33m209fdab[m Activate video buttons
+* [33me8d0d3a[m Remove admin option
+* [33m0aa17ab[m Create admin pages (students, teachers, lessons, etc.) and activate sidebar links
+* [33m219f736[m Refine admin navigation: Enable Settings, disable missing pages
+* [33m29f91ca[m Fix active buttons and links in main page and dashboards
+* [33m8b28d3e[m Initial commit
